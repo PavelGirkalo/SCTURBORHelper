@@ -6,6 +6,8 @@
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
@@ -15,9 +17,9 @@
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <Label layoutX="60.0" layoutY="14.0" text="Количество открытых файлов:" AnchorPane.leftAnchor="60.0" AnchorPane.topAnchor="14.0" />
-                  <Label id="countImages" fx:id="countImages" layoutX="78.0" layoutY="24.0" text="0" AnchorPane.leftAnchor="230.0" AnchorPane.topAnchor="14.0" />
-                  <SplitPane dividerPositions="0.3609406952965235" layoutX="10.0" layoutY="50.0" prefHeight="670.0" prefWidth="980.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="50.0">
+                  <Label layoutX="60.0" layoutY="14.0" text="Количество открытых файлов:" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="40.0" />
+                  <Label id="countImages" fx:id="countImages" layoutX="78.0" layoutY="24.0" text="0" AnchorPane.leftAnchor="180.0" AnchorPane.topAnchor="40.0" />
+                  <SplitPane dividerPositions="0.3609406952965235" layoutX="10.0" layoutY="50.0" prefHeight="670.0" prefWidth="980.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="60.0">
                     <items>
                       <AnchorPane minHeight="670.0" minWidth="350.0" prefHeight="670.0" prefWidth="350.0">
                            <children>
@@ -30,10 +32,22 @@
                               <Button id="nextButton" fx:id="nextButton" layoutX="350.0" layoutY="322.0" mnemonicParsing="false" onAction="#viewNextImage" text="-&gt;" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="322.0" />
                            </children>
                         </AnchorPane>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="670.0" prefWidth="514.0" />
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="670.0" prefWidth="514.0">
+                           <children>
+                              <TableView fx:id="finalTable" editable="true" layoutX="14.0" layoutY="14.0" prefHeight="642.0" prefWidth="586.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                                <columns>
+                                    <TableColumn fx:id="numberColumn" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" resizable="false" sortable="false" text="#" />
+                                  <TableColumn fx:id="nicknameColumn" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" text="Nickname" />
+                                  <TableColumn fx:id="orgsColumn" maxWidth="300.0" minWidth="300.0" prefWidth="300.0" text="Orgs" />
+                                    <TableColumn fx:id="flagColumn" maxWidth="80.0" minWidth="80.0" resizable="false" text="Flag" />
+                                </columns>
+                              </TableView>
+                           </children></AnchorPane>
                     </items>
                   </SplitPane>
                   <Button fx:id="openButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#openFile" text="Open" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
+                  <Button fx:id="clearButton" layoutX="68.0" layoutY="10.0" mnemonicParsing="false" onAction="#clearAllImages" text="Clear" AnchorPane.leftAnchor="66.0" AnchorPane.topAnchor="10.0" />
+                  <Button fx:id="recognButton" layoutX="371.0" layoutY="10.0" mnemonicParsing="false" onAction="#recognizeImages" text="Распознать" AnchorPane.leftAnchor="280.0" AnchorPane.topAnchor="10.0" />
                </children></AnchorPane>
       </content>
     </Tab>
