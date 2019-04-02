@@ -1,23 +1,37 @@
 package helpers;
 
 import javafx.scene.control.TableView;
+import model.Flag;
 import model.PlayerModel;
+import model.PlayersList;
 
 import java.util.ArrayList;
 
 public class ModelHelper {
-    public static ArrayList<PlayerModel> fillModel(ArrayList<PlayerModel> old_players, String[] names) {
-        ArrayList<PlayerModel> players = old_players;
-
-        //заполнение имен игроков из распознанной картинки
-        for (int i = 0; i < names.length; i++) {
-            PlayerModel player = new PlayerModel(names[i]);
-            players.add(player);
+    public static PlayersList fillModel(PlayersList old_players, String list) {
+        //считывание списка игроков из текстовой области
+        String[] new_names = list.split("\\n");
+        ArrayList<String> names = new ArrayList<>();
+        for(int i = 0; i < new_names.length; i++) {
+            String name = new_names[i];
+            names.add(name);
         }
 
-        //заполнение порядкового номера игрока в таблице
-        for(int i = 1; i<= players.size();i++)
-            players.get(i-1).setId(i);
+        //Заполнение модели со списка игроков
+        PlayersList players = new PlayersList(new ArrayList<>());
+        for (String name : names) {
+            players.add(new PlayerModel(name));
+            //проверка наличия ранее добавленных игроков в список игроков
+            if(old_players.getPlayersList() != null && old_players.findPlayer(name) != null)
+                if(old_players.findPlayer(name).getUserName().equals(name)){
+                    players.findPlayer(name).setOrgs(old_players.findPlayer(name).getOrgs());
+                    players.findPlayer(name).setFlag(old_players.findPlayer(name).getFlag());
+                }
+        }
+        //заполнение имен игроков из распознанной картинки
+        for (int i = 0; i < players.getPlayersList().size(); i++) {
+            players.getPlayersList().get(i).setId(i+1);
+        }
 
         return players;
     }

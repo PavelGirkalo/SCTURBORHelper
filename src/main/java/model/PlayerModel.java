@@ -61,5 +61,14 @@ public class PlayerModel {
     public void setFlag(Flag flag) {
         this.flag = flag;
     }
+
+    @Override
+    public String toString() {
+        return "PlayerModel{" +
+                "userName='" + userName + '\'' +
+                ", orgs='" + orgs + '\'' +
+                ", flag=" + flag +
+                '}';
+    }
 }
 

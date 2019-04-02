@@ -13,7 +13,8 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("/sample.fxml"));
         primaryStage.setTitle("Star Citizen TURBOR Helper");
         primaryStage.getIcons().add(new Image(Main.class.getResourceAsStream("/tur-logo.jpg")));
-        primaryStage.setScene(new Scene(root, 1000, 800));
+        primaryStage.setScene(new Scene(root, 1200, 800));
+        primaryStage.setResizable(false);
         primaryStage.show();
     }
 

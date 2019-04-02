@@ -1,17 +1,15 @@
 package helpers;
 
 
+import javafx.embed.swing.SwingFXUtils;
 import javafx.scene.image.Image;
-import javafx.scene.image.PixelReader;
-import javafx.scene.image.WritableImage;
 import org.imgscalr.Scalr;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
-import java.awt.*;
+
 import java.awt.image.BufferedImage;
 import java.io.*;
-import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Properties;
 
@@ -35,14 +33,7 @@ public class FileHelper {
         }
     }
 
-
-
     public static File loadFile() {
-        /*FileDialog fdlg = new FileDialog(new JFrame(), "Open file...", FileDialog.LOAD);
-        fdlg.setVisible(true);
-
-        return fdlg.getFiles()[0];
-*/
         Properties properties = new Properties();
         try{
             FileInputStream fis = new FileInputStream("src/main/resources/config.properties");
@@ -72,23 +63,9 @@ public class FileHelper {
     }
 
     public static Image extractImage(File file) {
-
+        BufferedImage image = new BufferedImage(290, 650, BufferedImage.TYPE_INT_RGB);
         try {
-            Image image = new Image(file.toURI().toURL().toString());
-            //PixelReader reader = image.getPixelReader();
-            //WritableImage newImage = new WritableImage(reader, (int) image.getWidth() - 380, 215, 290, (int) image.getHeight() - 430);
-            return image;
-        }catch (IOException e) {
-            System.out.println("File not found");
-            return new Image("");
-        }
-    }
-
-    public static File cropFile(File orig_file) {
-        File crop_file = new File("temp.img");
-        BufferedImage image = new BufferedImage(290,650,BufferedImage.TYPE_INT_RGB);
-        try {
-            java.awt.Image img = ImageIO.read(orig_file);
+            java.awt.Image img = ImageIO.read(file);
             BufferedImage orig_image = new BufferedImage(img.getWidth(null), img.getHeight(null), BufferedImage.TYPE_INT_RGB);
             orig_image.getGraphics().drawImage(img, 0, 0, null);
             //обрезка в зависимости от разрешения монитора/скриншота
@@ -113,13 +90,11 @@ public class FileHelper {
                     temp_image = Scalr.resize(orig_image, Scalr.Method.BALANCED, 2580, 1080);
                     image = temp_image.getSubimage(temp_image.getWidth() - 380 - 330, 215, 290, temp_image.getHeight() - 430);
                 }
-
             }
-            ImageIO.write(image, "jpg", crop_file);
-
-        } catch (IOException e){
+            return SwingFXUtils.toFXImage(image, null);
+        } catch (IOException e) {
             System.out.println("Image not found");
+            return new Image("");
         }
-        return crop_file;
     }
 }

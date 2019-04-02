@@ -1,5 +1,7 @@
 package helpers;
 
+import javafx.embed.swing.SwingFXUtils;
+import javafx.scene.image.ImageView;
 import net.sourceforge.tess4j.ITesseract;
 import net.sourceforge.tess4j.Tesseract;
 import net.sourceforge.tess4j.TesseractException;
@@ -15,35 +17,36 @@ public class RecognHelper {
 
 
 
-    public static String[] recognImages(ArrayList<File> files) {
+    public static String recognImages(ArrayList<ImageView> images) {
         ITesseract instance = new Tesseract();
         instance.setDatapath("src/main/resources/tessdata");
-        String[] nicknameList;
 
-        //считывание и файлов изображений
-        ArrayList<BufferedImage> images = new ArrayList<>(files.size());
-        for(int i = 0; i < files.size(); i++){
-            try {
-                BufferedImage image = ImageIO.read(files.get(i));
-                images.add(image);
-            } catch (IOException e){
-                System.out.println("Image not found");
+        //считывание из файлов изображений
+        ArrayList<BufferedImage> buff_images = new ArrayList<>();
+        for(int i = 0; i < images.size(); i++){
+            if(images.get(i).getImage() != null){
+                BufferedImage image = SwingFXUtils.fromFXImage(images.get(i).getImage(),null);
+                buff_images.add(image);
             }
         }
 
         //обработка изображений
-        ArrayList<File> processed_files = processingImage(images);
+        ArrayList<File> processed_files = processingImage(buff_images);
 
         //распознавание текста
-        String result = null;
-        try {
-            result = instance.doOCR(processed_files.get(0));
-        } catch (TesseractException e1) {
-            e1.printStackTrace();
+        String result = "";
+        for (int i = 0; i <processed_files.size(); i++){
+            try {
+                result += instance.doOCR(processed_files.get(i));
+            } catch (TesseractException e1) {
+                //e1.printStackTrace();
+            }
+            processed_files.get(i).delete();
         }
-        //files.get(0).delete();
-        nicknameList = result.split("\\n");
-        return nicknameList;
+        for (int i = 0; i <processed_files.size(); i++) {
+            processed_files.get(i).delete();
+        }
+        return result;
     }
 
     private static ArrayList<File> processingImage(ArrayList<BufferedImage> images) {
@@ -69,8 +72,8 @@ public class RecognHelper {
 
         //преобразование фрагмента в файл
         for (int i = 0; i < images.size(); i++) {
-            File file = new File("temp.jpg");
-            if (file.delete()) file = new File("temp.jpg");
+            File file = new File("src/main/resources/tempfiles/temp" + i + ".jpg");
+            if (file.delete()) file = new File("src/main/resources/tempfiles/temp" + i + ".jpg");
             try {
                 ImageIO.write(images.get(i), "jpg", file);
             } catch (IOException e1) {
