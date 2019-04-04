@@ -10,6 +10,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.paint.Color;
 import model.Flag;
 import model.PlayerModel;
 import model.PlayersList;
@@ -87,10 +88,11 @@ public class Controller implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         //создание модели данных для таблицы с игроками на сервере
         players = new PlayersList(null);
-        finalTable.setItems(list);
+
 
         //заполнение списка торговых локаций на странице торговли
-        ArrayList<String> locations = FileHelper.readLocations();
+        String loc_path = "./src/main/resources/Locations.csv";
+        ArrayList<String> locations = FileHelper.readCSV(loc_path);
         for (int i = 0; i < locations.size(); i++) {
             buyBox.getItems().add(locations.get(i));
             sellBox.getItems().add(locations.get(i));
@@ -178,6 +180,7 @@ public class Controller implements Initializable {
     public void recognizeImages() {
         //распознавание
         String nicknameList = RecognHelper.recognImages(imageList);
+        //вывод распознанного текста в текстовое поле для проверки корректности распознавания
         tempList.setText(tempList.getText() + nicknameList);
 
     }
@@ -188,6 +191,7 @@ public class Controller implements Initializable {
         // запрос на сервер для выяснения списка корп у игроков
         TableHelper.getInfo(players);
         //заполнение флага свой/чужой с проверкой игроков в черном и белом списках
+        players = ModelHelper.checkPlayersFlag(players);
 
         //вывод модели на экран
         ObservableList<PlayerModel> new_list = TableHelper.fillTable(list,players);
@@ -195,17 +199,12 @@ public class Controller implements Initializable {
         nicknameColumn.setCellValueFactory(new PropertyValueFactory<>("userName"));
         orgsColumn.setCellValueFactory(new PropertyValueFactory<>("orgs"));
         flagColumn.setCellValueFactory(new PropertyValueFactory<>("flag"));
+
         finalTable.setItems(new_list);
 
+
+
     }
-
-
-
-
-
-
-
-
 
 
 

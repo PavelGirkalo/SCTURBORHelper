@@ -3,6 +3,8 @@ package helpers;
 
 import javafx.embed.swing.SwingFXUtils;
 import javafx.scene.image.Image;
+import model.PlayerModel;
+import model.PlayersList;
 import org.imgscalr.Scalr;
 
 import javax.imageio.ImageIO;
@@ -16,9 +18,9 @@ import java.util.Properties;
 
 public class FileHelper {
 
-    public static ArrayList<String> readLocations() {
+    public static ArrayList<String> readCSV(String path) {
         try {
-            BufferedReader CSVFile = new BufferedReader(new FileReader("./src/main/resources/locations.csv"));
+            BufferedReader CSVFile = new BufferedReader(new FileReader(path));
             ArrayList<String> rows = new ArrayList<String>();
             String dataRow;
             int i = 0;
@@ -33,10 +35,28 @@ public class FileHelper {
         }
     }
 
+    public static PlayersList readPlayers(String path) {
+        try {
+            BufferedReader CSVFile = new BufferedReader(new FileReader(path));
+            PlayersList rows = new PlayersList(new ArrayList<>());
+            String dataRow;
+            int i = 0;
+            while ((dataRow = CSVFile.readLine()) != null) {
+                i++;
+                rows.add(new PlayerModel(dataRow));
+            }
+            return rows;
+        } catch (IOException ex) {
+            System.out.println("");
+            return null;
+        }
+    }
+
+
     public static File loadFile() {
         Properties properties = new Properties();
         try{
-            FileInputStream fis = new FileInputStream("src/main/resources/config.properties");
+            FileInputStream fis = new FileInputStream("src/main/resources/app/config.properties");
             properties.load(fis);
             String path = properties.getProperty("path");
             fis.close();
@@ -52,7 +72,7 @@ public class FileHelper {
     public static void savePath(String path) {
         Properties properties = new Properties();
         try{
-            FileOutputStream fos = new FileOutputStream("src/main/resources/config.properties");
+            FileOutputStream fos = new FileOutputStream("src/main/resources/app/config.properties");
             properties.setProperty("path",path);
             properties.store(fos,"");
             fos.close();

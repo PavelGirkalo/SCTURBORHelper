@@ -10,9 +10,9 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("/sample.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/app/sample.fxml"));
         primaryStage.setTitle("Star Citizen TURBOR Helper");
-        primaryStage.getIcons().add(new Image(Main.class.getResourceAsStream("/tur-logo.jpg")));
+        primaryStage.getIcons().add(new Image(Main.class.getResourceAsStream("/app/tur-logo.jpg")));
         primaryStage.setScene(new Scene(root, 1200, 800));
         primaryStage.setResizable(false);
         primaryStage.show();

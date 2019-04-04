@@ -41,5 +41,17 @@ public class ModelHelper {
         return players;
     }
 
+    public static PlayersList checkPlayersFlag(PlayersList players) {
+        PlayersList blackList = FileHelper.readPlayers("./src/main/resources/Enemies.csv");
+        PlayersList whiteList = FileHelper.readPlayers("./src/main/resources/Friends.csv");
+        for(PlayerModel player : players.getPlayersList()) {
+            if (blackList.findPlayer(player.getUserName()) != null)
+                player.setFlag(Flag.ENEMY);
+            if (whiteList.findPlayer(player.getUserName()) != null)
+                player.setFlag(Flag.FRIEND);
+        }
+        return players;
+    }
+
 
 }
