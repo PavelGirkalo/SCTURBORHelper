@@ -6,7 +6,7 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 public class Main extends Application {
-    //Stage primaryStage;
+
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -17,8 +17,6 @@ public class Main extends Application {
         primaryStage.setResizable(false);
         primaryStage.show();
     }
-
-
 
 
 

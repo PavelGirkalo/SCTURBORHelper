@@ -36,11 +36,11 @@
                         </AnchorPane>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="670.0" prefWidth="514.0">
                            <children>
-                              <TableView fx:id="finalTable" editable="true" layoutX="14.0" layoutY="14.0" prefHeight="650.0" prefWidth="420.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="210.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="10.0">
+                              <TableView fx:id="finalTable" editable="true" layoutX="14.0" layoutY="14.0" onMouseClicked="#viewInfoAboutPlayer" prefHeight="650.0" prefWidth="420.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="210.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="10.0">
                                 <columns>
                                     <TableColumn fx:id="numberColumn" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" resizable="false" sortable="false" text="#" />
                                   <TableColumn fx:id="nicknameColumn" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" sortable="false" text="Nickname" />
-                                  <TableColumn fx:id="orgsColumn" maxWidth="1.7976931348623157E308" minWidth="250.0" prefWidth="250.0" sortable="false" text="Orgs" />
+                                  <TableColumn fx:id="orgsColumn" maxWidth="1.7976931348623157E308" minWidth="270.0" prefWidth="270.0" sortable="false" text="Orgs" />
                                     <TableColumn fx:id="flagColumn" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" resizable="false" text="Flag" />
                                 </columns>
                               </TableView>

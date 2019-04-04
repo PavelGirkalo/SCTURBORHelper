@@ -19,7 +19,7 @@ public class PlayersList{
 
     public PlayerModel findPlayer(String name) {
         for (PlayerModel player : playersList)
-            if (player.getUserName().equals(name))
+            if (player.getUserName().toLowerCase().equals(name.toLowerCase()))
                 return player;
             return null;
     }

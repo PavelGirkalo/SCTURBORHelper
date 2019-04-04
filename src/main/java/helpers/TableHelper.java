@@ -15,8 +15,8 @@ import java.util.ArrayList;
 public class TableHelper {
 
 
-    public static ObservableList<PlayerModel> fillTable(ObservableList<PlayerModel> list, PlayersList players) {
-        list = FXCollections.observableArrayList();
+    public static ObservableList<PlayerModel> fillTable(PlayersList players) {
+        ObservableList<PlayerModel> list = FXCollections.observableArrayList();
         for (PlayerModel player : players.getPlayersList())
             list.add(player);
         return list;
