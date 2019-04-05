@@ -11,7 +11,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -37,13 +37,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/resources/locations.csv" />
-        <option value="$PROJECT_DIR$/src/main/java/recogn/ITesseract.java" />
-        <option value="$PROJECT_DIR$/src/main/java/recogn/TesseractException.java" />
-        <option value="$PROJECT_DIR$/src/main/java/recogn/Word.java" />
-        <option value="$PROJECT_DIR$/src/main/java/recogn/OCRResult.java" />
-        <option value="$PROJECT_DIR$/src/main/java/recogn/ITessAPI.java" />
-        <option value="$PROJECT_DIR$/src/main/java/recogn/TessAPI.java" />
         <option value="$PROJECT_DIR$/src/main/java/recogn/Tesseract.java" />
         <option value="$PROJECT_DIR$/src/main/java/recogn/recognition/ImageDeskew.java" />
         <option value="$PROJECT_DIR$/src/main/java/recogn/recognition/ImageUtil.java" />
@@ -74,20 +67,27 @@
         <option value="$PROJECT_DIR$/src/main/resources/config.properties" />
         <option value="$PROJECT_DIR$/src/main/java/helpers/RecognHelper.java" />
         <option value="$PROJECT_DIR$/src/main/resources/app/config.properties" />
-        <option value="$PROJECT_DIR$/src/main/java/helpers/FileHelper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/helpers/ModelHelper.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/PlayersList.java" />
         <option value="$PROJECT_DIR$/src/main/java/helpers/TableHelper.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/app/sample.fxml" />
         <option value="$PROJECT_DIR$/src/main/resources/app/infoPage.fxml" />
-        <option value="$PROJECT_DIR$/src/main/java/ToolTipCellFactory.java" />
         <option value="$PROJECT_DIR$/src/main/java/Main.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Controller.java" />
         <option value="$PROJECT_DIR$/src/main/java/Test.java" />
         <option value="$PROJECT_DIR$/src/test/Test.java" />
         <option value="$PROJECT_DIR$/src/test/java/Test.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/model/Player.java" />
+        <option value="$PROJECT_DIR$/src/main/java/model/PlayerList.java" />
+        <option value="$PROJECT_DIR$/src/main/java/model/Org.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ToolTipCellFactory.java" />
+        <option value="$PROJECT_DIR$/src/main/java/helpers/ParserHelper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/model/OrgList.java" />
+        <option value="$PROJECT_DIR$/src/main/java/helpers/ModelHelper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/helpers/FileHelper.java" />
         <option value="$PROJECT_DIR$/src/test/java/myTests.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/app/sample.fxml" />
+        <option value="$PROJECT_DIR$/src/main/java/Controller.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/app/infoWindow.fxml" />
+        <option value="$PROJECT_DIR$/src/main/java/InfoController.java" />
       </list>
     </option>
   </component>
@@ -109,6 +109,40 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="SCTURBORHelper" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SCTURBORHelper" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SCTURBORHelper" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SCTURBORHelper" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SCTURBORHelper" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SCTURBORHelper" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SCTURBORHelper" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SCTURBORHelper" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SCTURBORHelper" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
       <pane id="Scope">
         <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
           <expand>
@@ -146,6 +180,21 @@
               <item name="SCTURBORHelper" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="SCTURBORHelper" type="2674bda8:ScopeViewTreeModel$GroupNode" />
               <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="resources" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="SCTURBORHelper" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="SCTURBORHelper" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="resources" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="app" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="SCTURBORHelper" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="SCTURBORHelper" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="test" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
@@ -159,44 +208,10 @@
           <select />
         </subPane>
       </pane>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="SCTURBORHelper" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SCTURBORHelper" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SCTURBORHelper" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SCTURBORHelper" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SCTURBORHelper" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SCTURBORHelper" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SCTURBORHelper" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SCTURBORHelper" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SCTURBORHelper" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554380740888" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554468924670" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/model" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -205,15 +220,18 @@
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Devel\SCTURBORHelper\src\test\java" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Devel\SCTURBORHelper\src\test\java" />
       <recent name="C:\Devel\SCTURBORHelper\src\test" />
       <recent name="C:\Devel\SCTURBORHelper\src" />
       <recent name="D:\Docs\Devel\SCTURBORHelper\src\main\resources\app" />
       <recent name="D:\Docs\Devel\SCTURBORHelper\src\main\resources" />
+    </key>
+    <key name="MoveMembersDialog.RECENTS_KEY">
+      <recent name="helpers.ParserHelper" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Devel\SCTURBORHelper\src\test\java" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -248,9 +266,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="myTests.orgsTest" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="SCTURBORHelper" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="myTests" />
+      <option name="METHOD_NAME" value="orgsTest" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="TestNG.myTests.orgsTest" />
         <item itemvalue="TestNG.myTests.myTests" />
       </list>
     </recent_temporary>
@@ -269,34 +300,34 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="myTests_myTests - 2019.04.04 at 17h 29m 32s.xml">
-      <configuration name="myTests.myTests" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="myTests_myTests - 2019.04.04 at 17h 29m 40s.xml">
-      <configuration name="myTests.myTests" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="myTests_myTests - 2019.04.04 at 17h 31m 11s.xml">
-      <configuration name="myTests.myTests" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="myTests_myTests - 2019.04.04 at 17h 44m 08s.xml">
-      <configuration name="myTests.myTests" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="myTests_myTests - 2019.04.04 at 17h 45m 45s.xml">
-      <configuration name="myTests.myTests" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="myTests_myTests - 2019.04.04 at 17h 45m 52s.xml">
-      <configuration name="myTests.myTests" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="myTests_myTests - 2019.04.04 at 17h 51m 16s.xml">
-      <configuration name="myTests.myTests" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="myTests_myTests - 2019.04.04 at 17h 51m 54s.xml">
-      <configuration name="myTests.myTests" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="myTests_myTests - 2019.04.04 at 17h 57m 44s.xml">
-      <configuration name="myTests.myTests" configurationId="TestNG" />
-    </history-entry>
     <history-entry file="myTests_myTests - 2019.04.04 at 17h 58m 48s.xml">
+      <configuration name="myTests.myTests" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="myTests_myTests - 2019.04.05 at 08h 40m 23s.xml">
+      <configuration name="myTests.myTests" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="myTests_myTests - 2019.04.05 at 08h 41m 59s.xml">
+      <configuration name="myTests.myTests" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="myTests_myTests - 2019.04.05 at 08h 42m 18s.xml">
+      <configuration name="myTests.myTests" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="myTests_myTests - 2019.04.05 at 09h 25m 25s.xml">
+      <configuration name="myTests.myTests" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="myTests_myTests - 2019.04.05 at 10h 32m 29s.xml">
+      <configuration name="myTests.myTests" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="myTests_myTests - 2019.04.05 at 10h 42m 04s.xml">
+      <configuration name="myTests.myTests" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="myTests_myTests - 2019.04.05 at 10h 42m 38s.xml">
+      <configuration name="myTests.myTests" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="myTests_myTests - 2019.04.05 at 10h 43m 45s.xml">
+      <configuration name="myTests.myTests" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="myTests_myTests - 2019.04.05 at 11h 04m 02s.xml">
       <configuration name="myTests.myTests" configurationId="TestNG" />
     </history-entry>
   </component>
@@ -308,7 +339,7 @@
       <window_info id="Capture Tool" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Image Layers" order="4" />
-      <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.13166311" />
+      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.13272922" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="0" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" weight="0.32936078" />
@@ -346,40 +377,62 @@
           <option name="timeStamp" value="45" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Controller.java</url>
-          <line>212</line>
-          <properties />
-          <option name="timeStamp" value="46" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/helpers/TableHelper.java</url>
-          <line>42</line>
+          <line>17</line>
           <properties />
           <option name="timeStamp" value="47" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/myTests.java</url>
-          <line>37</line>
+          <line>34</line>
           <properties />
-          <option name="timeStamp" value="48" />
+          <option name="timeStamp" value="65" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/myTests.java</url>
-          <line>36</line>
+          <line>43</line>
           <properties />
-          <option name="timeStamp" value="51" />
+          <option name="timeStamp" value="70" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/myTests.java</url>
-          <line>31</line>
+          <url>file://$PROJECT_DIR$/src/main/java/InfoController.java</url>
+          <line>44</line>
           <properties />
-          <option name="timeStamp" value="57" />
+          <option name="timeStamp" value="74" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/InfoController.java</url>
+          <line>54</line>
+          <properties />
+          <option name="timeStamp" value="78" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="nameLabel" language="JAVA" />
+        <watch expression="orgLabel" language="JAVA" />
+        <watch expression="imageView" language="JAVA" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="watch">
+      <expression>
+        <expression-string>imageView</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>orgLabel</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>nameLabel</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>imageView1</expression-string>
         <language-id>JAVA</language-id>
@@ -388,31 +441,8 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/sourceforge/tess4j/util/LoggerConfig.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/sourceforge/tess4j/util/LoggHelper.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/sourceforge/tess4j/util/PdfBoxUtilities.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/sourceforge/tess4j/util/PdfGsUtilities.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/sourceforge/tess4j/util/Utils.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/sourceforge/tess4j/util/PdfUtilities.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/sourceforge/tess4j/util/ImageHelper.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/sourceforge/tess4j/ITessAPI.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/sourceforge/tess4j/ITesseract.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/sourceforge/tess4j/Tesseract.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/sourceforge/tess4j/TessAPI1.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/sourceforge/tess4j/TessAPI.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/sourceforge/tess4j/OCRResult.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/sourceforge/tess4j/Tesseract1.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/sourceforge/tess4j/TesseractException.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/sourceforge/tess4j/Word.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/model.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/model/Flag.java" />
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/javafx-src.zip!/javafx/scene/control/TableView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="842" column="22" selection-start-line="842" selection-start-column="22" selection-end-line="842" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/javafx-src.zip!/javafx/scene/control/TextArea.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
@@ -469,13 +499,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/javafx-src.zip!/javafx/fxml/FXMLLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="431">
-          <caret line="1772" selection-start-line="1772" selection-end-line="1772" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/locations.csv">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -489,13 +512,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/Enemies.csv" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/Friends.csv" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/PlayerModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/javafx-src.zip!/javafx/scene/control/TableCell.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
@@ -528,61 +544,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/PlayersList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="21" column="78" lean-forward="true" selection-start-line="21" selection-start-column="78" selection-end-line="21" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/helpers/ModelHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="47" column="32" selection-start-line="47" selection-start-column="32" selection-end-line="47" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/app/infoPage.fxml" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/ToolTipCellFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="27" column="45" lean-forward="true" selection-start-line="27" selection-start-column="45" selection-end-line="27" selection-end-column="45" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#223#771#0" expanded="true" />
-            <element signature="e#770#771#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="335">
-          <caret line="205" column="24" selection-start-line="205" selection-start-column="24" selection-end-line="205" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/app/sample.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="38" column="142" selection-start-line="38" selection-start-column="123" selection-end-line="38" selection-end-column="142" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
     <entry file="file://$MAVEN_REPOSITORY$/org/testng/testng/6.14.3/testng-6.14.3.pom">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -601,34 +563,284 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/helpers/TableHelper.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/jsoup/jsoup/1.11.3/jsoup-1.11.3.jar!/org/jsoup/select/QueryParser.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
+        <state relative-caret-position="102">
+          <caret line="60" column="13" selection-start-line="60" selection-start-column="13" selection-end-line="60" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/jsoup/jsoup/1.11.3/jsoup-1.11.3.jar!/org/jsoup/select/Selector.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="32" column="40" selection-start-line="32" selection-start-column="40" selection-end-line="32" selection-end-column="40" />
         </state>
       </provider>
     </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/testng/testng/6.14.3/testng-6.14.3.jar!/org/testng/internal/Invoker.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="453" selection-start-line="453" selection-end-line="453" />
+        <state relative-caret-position="142">
+          <caret line="452" selection-start-line="452" selection-end-line="452" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/helpers/FileHelper.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/Player.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="87" column="51" selection-start-line="87" selection-start-column="12" selection-end-line="87" selection-end-column="51" />
+        <state relative-caret-position="467">
+          <caret line="54" column="19" selection-start-line="54" selection-start-column="19" selection-end-line="54" selection-end-column="19" />
+          <folding>
+            <element signature="e#1014#1015#0" expanded="true" />
+            <element signature="e#1041#1042#0" expanded="true" />
+            <element signature="e#1081#1082#0" expanded="true" />
+            <element signature="e#1113#1114#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/PlayerList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="11" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
+          <folding>
+            <element signature="e#167#168#0" expanded="true" />
+            <element signature="e#212#213#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/helpers/TableHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/jsoup/jsoup/1.11.3/jsoup-1.11.3.jar!/org/jsoup/nodes/Element.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="233" selection-start-line="233" selection-end-line="233" />
+          <folding>
+            <element signature="e#6872#6873#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/Org.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
+          <folding>
+            <element signature="e#145#146#0" expanded="true" />
+            <element signature="e#177#178#0" expanded="true" />
+            <element signature="e#517#518#0" expanded="true" />
+            <element signature="e#557#558#0" expanded="true" />
+            <element signature="e#589#590#0" expanded="true" />
+            <element signature="e#625#626#0" expanded="true" />
+            <element signature="e#657#658#0" expanded="true" />
+            <element signature="e#707#708#0" expanded="true" />
+            <element signature="e#749#750#0" expanded="true" />
+            <element signature="e#781#782#0" expanded="true" />
+            <element signature="e#812#813#0" expanded="true" />
+            <element signature="e#857#858#0" expanded="true" />
+            <element signature="e#897#898#0" expanded="true" />
+            <element signature="e#943#944#0" expanded="true" />
+            <element signature="e#970#971#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/OrgList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="370">
+          <caret line="41" selection-start-line="41" selection-end-line="41" />
+          <folding>
+            <element signature="e#148#149#0" expanded="true" />
+            <element signature="e#186#187#0" expanded="true" />
+            <element signature="e#228#229#0" expanded="true" />
+            <element signature="e#258#259#0" expanded="true" />
+            <element signature="e#312#313#0" expanded="true" />
+            <element signature="e#350#351#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/helpers/ParserHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-36">
+          <caret line="30" selection-start-line="30" selection-end-line="30" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ToolTipCellFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="28" column="39" selection-start-line="28" selection-start-column="39" selection-end-line="28" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/javafx-src.zip!/javafx/scene/control/Tooltip.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/helpers/ModelHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="36" column="88" selection-start-line="36" selection-start-column="54" selection-end-line="36" selection-end-column="88" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/helpers/FileHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="321">
+          <caret line="65" column="34" selection-start-line="65" selection-start-column="34" selection-end-line="65" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/app/sample.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="279">
+          <caret line="39" column="41" lean-forward="true" selection-start-line="39" selection-start-column="41" selection-end-line="39" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/myTests.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="31" column="12" selection-start-line="31" selection-start-column="12" selection-end-line="31" selection-end-column="12" />
+        <state relative-caret-position="403">
+          <caret line="43" selection-start-line="43" selection-end-line="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1559#1560#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/javafx-src.zip!/javafx/beans/property/ObjectPropertyBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="131" selection-start-line="131" selection-end-line="131" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/javafx-src.zip!/javafx/beans/property/ReadOnlyObjectWrapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="109" selection-start-line="109" selection-end-line="109" />
+          <folding>
+            <element signature="e#2653#2654#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/javafx-src.zip!/javafx/scene/control/SelectionModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="119" column="38" selection-start-line="119" selection-start-column="38" selection-end-line="119" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/javafx-src.zip!/javafx/scene/control/TableView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="1000" selection-start-line="1000" selection-end-line="1000" />
+          <folding>
+            <element signature="e#46988#46989#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/javafx-src.zip!/javafx/scene/Parent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="567" selection-start-line="567" selection-end-line="567" />
+          <folding>
+            <element signature="e#23772#23773#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/javafx-src.zip!/javafx/scene/layout/Pane.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="359">
+          <caret line="141" selection-start-line="141" selection-end-line="141" />
+          <folding>
+            <element signature="e#4340#4341#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/javafx-src.zip!/javafx/scene/Scene.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="1741" selection-start-line="1741" selection-end-line="1741" />
+          <folding>
+            <element signature="e#6631#6632#0" expanded="true" />
+            <element signature="e#6713#6714#0" expanded="true" />
+            <element signature="e#56198#56781#0" expanded="true" />
+            <element signature="e#56780#56781#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/javafx-src.zip!/javafx/event/Event.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="393">
+          <caret line="198" selection-start-line="198" selection-end-line="198" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/javafx-src.zip!/javafx/fxml/FXMLLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="1657" selection-start-line="1657" selection-end-line="1657" />
+          <folding>
+            <element signature="e#66921#66922#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2550">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="24" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/app/infoWindow.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="26" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/InfoController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="353">
+          <caret line="65" column="65" selection-start-line="65" selection-start-column="65" selection-end-line="65" selection-end-column="65" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

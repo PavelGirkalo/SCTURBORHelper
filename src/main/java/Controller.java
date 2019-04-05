@@ -1,21 +1,16 @@
-import helpers.FileHelper;
-import helpers.ModelHelper;
-import helpers.RecognHelper;
-import helpers.TableHelper;
+import helpers.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.StackPane;
-import javafx.stage.Stage;
 import model.Flag;
-import model.PlayerModel;
-import model.PlayersList;
+import model.OrgList;
+import model.Player;
+import model.PlayerList;
 
 import java.io.File;
 import java.net.URL;
@@ -26,8 +21,9 @@ public class Controller implements Initializable {
 
     int count = 0;
     //ArrayList<File> files = new ArrayList<>();
-    PlayersList players;
-    ObservableList<PlayerModel> list = FXCollections.observableArrayList();
+    PlayerList players;
+    OrgList orgs;
+    ObservableList<Player> list = FXCollections.observableArrayList();
 
 
     //объекты верхней строки первой вкладки
@@ -71,15 +67,15 @@ public class Controller implements Initializable {
 
     //таблица и ее столбцы
     @FXML
-    TableView<PlayerModel> finalTable;
+    TableView<Player> finalTable;
     @FXML
-    TableColumn<PlayerModel,Integer> numberColumn;
+    TableColumn<Player,Integer> numberColumn;
     @FXML
-    TableColumn<PlayerModel,String> nicknameColumn;
+    TableColumn<Player,String> nicknameColumn;
     @FXML
-    TableColumn<PlayerModel,String> orgsColumn;
+    TableColumn<Player,String> orgsColumn;
     @FXML
-    TableColumn<PlayerModel,Flag> flagColumn;
+    TableColumn<Player,Flag> flagColumn;
 
 
 
@@ -91,7 +87,8 @@ public class Controller implements Initializable {
 
     public void initialize(URL location, ResourceBundle resources) {
         //создание модели данных для таблицы с игроками на сервере
-        players = new PlayersList(null);
+        players = new PlayerList(null);
+        orgs = new OrgList(new ArrayList<>());
 
         //настройка связи между моделью с данными и таблицей на экране
         numberColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -101,7 +98,7 @@ public class Controller implements Initializable {
         nicknameColumn.setCellFactory(new ToolTipCellFactory<>());
 
         //предоставление возможности редактирования ячеек в таблице
-        //orgsColumn.setCellFactory(TextFieldTableCell.<PlayerModel> forTableColumn());
+        //orgsColumn.setCellFactory(TextFieldTableCell.<Player> forTableColumn());
 
 
         //заполнение списка торговых локаций на странице торговли
@@ -200,44 +197,23 @@ public class Controller implements Initializable {
     }
 
     public void viewInfo(){
+
         //запись распознанных имен в модель
         players = ModelHelper.fillModel(players,tempList.getText());
         // запрос на сервер для выяснения списка корп у игроков
-        TableHelper.getInfo(players);
+        ParserHelper.getInfo(players,orgs);
         //заполнение флага свой/чужой с проверкой игроков в черном и белом списках
         players = ModelHelper.checkPlayersFlag(players);
 
         //вывод модели на экран
         finalTable.setItems(TableHelper.fillTable(players));
 
-        System.out.println("OK");
-
     }
 
 
-    public void viewInfoAboutPlayer() {
-
-        PlayerModel player = finalTable.getSelectionModel().getSelectedItem();
-
-        Label secondLabel = new Label(player.getUserName());
-
-        StackPane secondaryLayout = new StackPane();
-        secondaryLayout.getChildren().add(secondLabel);
-
-        Scene secondScene = new Scene(secondaryLayout, 300, 300);
-
-        // New window (Stage)
-        Stage newWindow = new Stage();
-        newWindow.setTitle(player.getUserName() + "info");
-        newWindow.setScene(secondScene);
-
-        // Set position of second window, related to primary window.
-        newWindow.setX(200);
-        newWindow.setY(100);
-
-        newWindow.show();
-
-
+    public void viewInfoAboutPlayer(){
+        InfoController infoController = new InfoController();
+        infoController.viewPlayerInfo(finalTable.getSelectionModel().getSelectedItem());
     }
 
 

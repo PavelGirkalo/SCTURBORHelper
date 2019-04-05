@@ -1,3 +1,5 @@
+import helpers.FileHelper;
+import model.Org;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -9,6 +11,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 
 public class myTests {
     @Test
@@ -21,24 +24,24 @@ public class myTests {
         try {
             doc = Jsoup.connect(full_name).get();
             //take info about main org
-            Element main_org = doc.selectFirst("div[class*='box-content org main']");
-            Element org_info = main_org.selectFirst("div[class='thumb']");
-            Element main_info = org_info.selectFirst("a[href*='/orgs/']");
-            String main_orgname = main_info.attributes().get("href");
-            Element main_img = main_info.selectFirst("img");
-            URL path = new URL(base + main_img.attr("src"));
-            //File img = new File(path);
-
-            BufferedImage img = ImageIO.read(path);
-
-
-
-            //take info about affiliate orgs
-            Elements aff_orgs = doc.select("div[class*='box-content org affiliation']");
-            String attr = "";
-
+            ArrayList<Org> new_orgs = new ArrayList<>();
+            Elements orgs = doc.select("div[class*='box-content org']");
+            for(Element org : orgs) {
+                Element main_info = org.selectFirst("div[class='thumb']").selectFirst("a[href*='/orgs/']");
+                //имя корпы
+                String main_orgname = main_info.attributes().get("href").substring(6);
+                //ссылка на лого корпы
+                String main_img = base + main_info.selectFirst("img").attr("src");
+                new_orgs.add(new Org(main_orgname, main_img));
+            }
         } catch (IOException e) {
             System.out.println("No info");
         }
     }
+
+    @Test
+    public void orgsTest(){
+        FileHelper.readOrgs("./src/main/resources/Orgs.csv");
+    }
+
 }

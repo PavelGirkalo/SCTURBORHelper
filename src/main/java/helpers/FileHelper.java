@@ -3,8 +3,10 @@ package helpers;
 
 import javafx.embed.swing.SwingFXUtils;
 import javafx.scene.image.Image;
-import model.PlayerModel;
-import model.PlayersList;
+import model.Org;
+import model.OrgList;
+import model.Player;
+import model.PlayerList;
 import org.imgscalr.Scalr;
 
 import javax.imageio.ImageIO;
@@ -35,15 +37,15 @@ public class FileHelper {
         }
     }
 
-    public static PlayersList readPlayers(String path) {
+    public static PlayerList readPlayers(String path) {
         try {
             BufferedReader CSVFile = new BufferedReader(new FileReader(path));
-            PlayersList rows = new PlayersList(new ArrayList<>());
+            PlayerList rows = new PlayerList(new ArrayList<>());
             String dataRow;
             int i = 0;
             while ((dataRow = CSVFile.readLine()) != null) {
                 i++;
-                rows.add(new PlayerModel(dataRow));
+                rows.add(new Player(dataRow));
             }
             return rows;
         } catch (IOException ex) {
@@ -51,6 +53,26 @@ public class FileHelper {
             return null;
         }
     }
+
+    public static OrgList readOrgs(String path) {
+        try {
+            BufferedReader CSVFile = new BufferedReader(new FileReader(path));
+            OrgList orgs = new OrgList(new ArrayList<>());
+            String dataRow;
+            int i = 0;
+            while ((dataRow = CSVFile.readLine()) != null) {
+                i++;
+                String[] data = dataRow.split(",");
+                orgs.add(new Org(data[0],data[1]));
+            }
+            return orgs;
+        } catch (IOException ex) {
+            System.out.println("");
+            return null;
+        }
+    }
+
+
 
 
     public static File loadFile() {

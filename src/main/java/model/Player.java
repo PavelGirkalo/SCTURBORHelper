@@ -1,32 +1,34 @@
 package model;
 
-public class PlayerModel {
+import java.util.ArrayList;
+
+public class Player {
     private int id;
     private String userName;
-    private String orgs;
+    private ArrayList<Org> orgs;
     private Flag flag;
 
-    public PlayerModel(int id, String userName, String orgs, Flag flag) {
+    public Player(int id, String userName, ArrayList<Org> orgs, Flag flag) {
         this.id = id;
         this.userName = userName;
         this.orgs = orgs;
         this.flag = flag;
     }
 
-    public PlayerModel(int id, String userName, String orgs) {
+    public Player(int id, String userName, ArrayList<Org> orgs) {
         this.id = id;
         this.userName = userName;
         this.orgs = orgs;
     }
 
-    public PlayerModel(String userName, String orgs) {
+    public Player(String userName, ArrayList<Org> orgs) {
         this.userName = userName;
         this.orgs = orgs;
     }
 
-    public PlayerModel(String userName) {
+    public Player(String userName) {
         this.userName = userName;
-        this.orgs = "";
+        this.orgs = new ArrayList<>();
         this.flag = Flag.NEUTRAL;
     }
 
@@ -46,11 +48,11 @@ public class PlayerModel {
         this.userName = userName;
     }
 
-    public String getOrgs() {
+    public ArrayList<Org> getOrgs() {
         return orgs;
     }
 
-    public void setOrgs(String orgs) {
+    public void setOrgs(ArrayList<Org> orgs) {
         this.orgs = orgs;
     }
 
@@ -64,9 +66,9 @@ public class PlayerModel {
 
     @Override
     public String toString() {
-        return "PlayerModel{" +
+        return "Player{" +
                 "userName='" + userName + '\'' +
-                ", orgs='" + orgs + '\'' +
+                ", orgs=" + orgs +
                 ", flag=" + flag +
                 '}';
     }
