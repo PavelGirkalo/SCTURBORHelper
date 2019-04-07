@@ -1,8 +1,11 @@
 package model;
 
+import javafx.scene.image.Image;
+
 public class Org {
     private String name;
-    private String logo_path;
+    private String logoPath;
+    private Image logo;
     private int quantity;
 
     public Org(String name) {
@@ -11,12 +14,18 @@ public class Org {
 
     public Org(String name, String logo_path) {
         this.name = name;
-        this.logo_path = logo_path;
+        this.logoPath = logo_path;
+    }
+
+    public Org(String name, String logo_path, Image image) {
+        this.name = name;
+        this.logoPath = logo_path;
+        this.logo = image;
     }
 
     public Org(String name, String logo_path, int quantity) {
         this.name = name;
-        this.logo_path = logo_path;
+        this.logoPath = logo_path;
         this.quantity = quantity;
     }
 
@@ -28,12 +37,12 @@ public class Org {
         this.name = name;
     }
 
-    public String getLogo_path() {
-        return logo_path;
+    public String getLogoPath() {
+        return logoPath;
     }
 
-    public void setLogo_path(String logo_path) {
-        this.logo_path = logo_path;
+    public void setLogoPath(String logoPath) {
+        this.logoPath = logoPath;
     }
 
     public int getQuantity() {
@@ -42,6 +51,18 @@ public class Org {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+    public Image getLogo() {
+        return logo;
+    }
+
+    public void setLogo(Image logo) {
+        this.logo = logo;
+    }
+
+    public void setLogo(String logoPath) {
+        this.logo = new Image(logoPath);
     }
 
     @Override

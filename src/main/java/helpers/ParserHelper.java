@@ -1,5 +1,6 @@
 package helpers;
 
+import javafx.scene.image.Image;
 import model.Org;
 import model.OrgList;
 import model.Player;
@@ -58,13 +59,19 @@ public class ParserHelper {
         String base = "https://robertsspaceindustries.com";
         ArrayList<Org> new_orgs = new ArrayList<>();
         Elements orgs = doc.select("div[class*='box-content org']");
+        Element th = orgs.select("div[class='thumb']").get(0).selectFirst("a");
         for(Element org : orgs) {
-            Element main_info = org.selectFirst("div[class='thumb']").selectFirst("a[href*='/orgs/']");
-            //имя корпы
-            String main_orgname = main_info.attributes().get("href").substring(6);
-            //ссылка на лого корпы
-            String main_img = base + main_info.selectFirst("img").attr("src");
-            new_orgs.add(new Org(main_orgname, main_img));
+            if (org.select("div[class='thumb']").get(0).selectFirst("a")!=null) {
+
+                    Element main_info = org.selectFirst("div[class='thumb']").selectFirst("a[href*='/orgs/']");
+                    //имя корпы
+                    String main_orgname = main_info.attributes().get("href").substring(6);
+                    //ссылка на лого корпы
+                    String main_img = base + main_info.selectFirst("img").attr("src");
+                    Image image = new Image(main_img);
+                    new_orgs.add(new Org(main_orgname, main_img,image));
+
+            }
         }
         return new_orgs;
     }

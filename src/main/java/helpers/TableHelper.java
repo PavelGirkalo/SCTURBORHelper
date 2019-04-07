@@ -2,6 +2,8 @@ package helpers;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import model.Org;
+import model.OrgList;
 import model.Player;
 import model.PlayerList;
 
@@ -13,6 +15,15 @@ public class TableHelper {
         for (Player player : players.getPlayerList())
             list.add(player);
         return list;
+    }
+
+    public static ObservableList<Org> fillOrgTable(OrgList orgs) {
+        ObservableList<Org> orgList = FXCollections.observableArrayList();
+        for (Org org : orgs.getOrgList()) {
+            org.setLogo(org.getLogoPath());
+            orgList.add(org);
+        }
+        return orgList;
     }
 
 }

@@ -1,18 +1,14 @@
 import helpers.*;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import model.Flag;
-import model.OrgList;
-import model.Player;
-import model.PlayerList;
+import model.*;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -23,7 +19,7 @@ public class Controller implements Initializable {
     //ArrayList<File> files = new ArrayList<>();
     PlayerList players;
     OrgList orgs;
-    ObservableList<Player> list = FXCollections.observableArrayList();
+    //ObservableList<Player> list = FXCollections.observableArrayList();
 
 
     //объекты верхней строки первой вкладки
@@ -36,9 +32,6 @@ public class Controller implements Initializable {
     @FXML
     Label currentPage;
 
-
-    @FXML
-    Button recognButton;
 
     //объекты левой области первой вкладки (картинки и кнопки листания)
     @FXML
@@ -61,6 +54,8 @@ public class Controller implements Initializable {
 
     //объекты правой области первой вкладки
     @FXML
+    Button recognButton;
+    @FXML
     TextArea tempList;
     @FXML
     Button viewButton;
@@ -76,6 +71,18 @@ public class Controller implements Initializable {
     TableColumn<Player,String> orgsColumn;
     @FXML
     TableColumn<Player,Flag> flagColumn;
+
+
+    //объекты второй страницы
+    @FXML
+    Button allOrgs;
+
+    @FXML
+    TableView<Org> orgsTable;
+    @FXML
+    TableColumn<Org,ImageView> orgPath;
+    @FXML
+    TableColumn<Org,String> orgName;
 
 
 
@@ -95,7 +102,11 @@ public class Controller implements Initializable {
         nicknameColumn.setCellValueFactory(new PropertyValueFactory<>("userName"));
         orgsColumn.setCellValueFactory(new PropertyValueFactory<>("orgs"));
         flagColumn.setCellValueFactory(new PropertyValueFactory<>("flag"));
-        nicknameColumn.setCellFactory(new ToolTipCellFactory<>());
+        //orgsColumn.setCellFactory(new ToolTipCellFactory<>());
+
+        orgPath.setCellValueFactory(new PropertyValueFactory<>("logo"));
+        orgPath.setCellFactory(new ImageCellFactory<>());
+        orgName.setCellValueFactory(new PropertyValueFactory<>("name"));
 
         //предоставление возможности редактирования ячеек в таблице
         //orgsColumn.setCellFactory(TextFieldTableCell.<Player> forTableColumn());
@@ -211,11 +222,26 @@ public class Controller implements Initializable {
     }
 
 
-    public void viewInfoAboutPlayer(){
+    public void viewInfoAboutPlayer() throws IOException {
+        /*
+        //FXMLLoader loader = new FXMLLoader(getClass().getResource("/app/infoWindow.fxml"));
+        AnchorPane infoWindow = new AnchorPane();
         InfoController infoController = new InfoController();
-        infoController.viewPlayerInfo(finalTable.getSelectionModel().getSelectedItem());
+        infoController.setMainWindow(this);
+
+        Stage stage = new Stage();
+        stage.setHeight(300);
+        stage.setWidth(300);
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.initOwner(finalTable.getScene().getWindow());
+        Scene scene = new Scene(infoWindow);
+        stage.setScene(scene);
+        stage.show();
+        infoController.viewPlayerInfo(finalTable.getSelectionModel().getSelectedItem());*/
     }
 
-
+    public void showAllOrgs(){
+        orgsTable.setItems(TableHelper.fillOrgTable(orgs));
+    }
 
 }
