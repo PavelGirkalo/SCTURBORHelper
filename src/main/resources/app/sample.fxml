@@ -11,7 +11,6 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
 
 <TabPane maxHeight="800.0" maxWidth="1400.0" minHeight="800.0" minWidth="1400.0" prefHeight="800.0" prefWidth="1400.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
   <tabs>
@@ -37,21 +36,21 @@
                         </AnchorPane>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="670.0" prefWidth="514.0">
                            <children>
+                              <TableView fx:id="orgsTable" editable="true" prefHeight="650.0" prefWidth="250.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="10.0">
+                                <columns>
+                                    <TableColumn fx:id="orgName" minWidth="150.0" prefWidth="150.0" sortType="DESCENDING" text="Название корпорации" />
+                                    <TableColumn fx:id="orgQuantity" minWidth="80.0" resizable="false" sortType="DESCENDING" text="Количество" />
+                                </columns>
+                              </TableView>
                               <TableView fx:id="finalTable" editable="true" layoutX="14.0" layoutY="14.0" onMouseClicked="#viewInfoAboutPlayer" prefHeight="650.0" prefWidth="550.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="210.0" AnchorPane.topAnchor="10.0">
                                 <columns>
                                   <TableColumn fx:id="numberColumn" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" resizable="false" sortable="false" text="#" />
-                                  <TableColumn fx:id="nicknameColumn" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" sortable="false" text="Nickname" />
-                                  <TableColumn fx:id="orgsColumn" maxWidth="270.0" minWidth="270.0" prefWidth="270.0" sortable="false" text="Orgs" />
-                                  <TableColumn fx:id="flagColumn" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" resizable="false" text="Flag" />
+                                  <TableColumn fx:id="nicknameColumn" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" sortable="false" text="Имя игрока" />
+                                  <TableColumn fx:id="orgsColumn" maxWidth="270.0" minWidth="270.0" prefWidth="270.0" sortable="false" text="Организации игрока" />
+                                  <TableColumn fx:id="flagColumn" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" resizable="false" text="Свой/чужой" />
                                 </columns>
                               </TableView>
                               <TextArea fx:id="tempList" layoutX="14.0" layoutY="14.0" prefHeight="650.0" prefWidth="200.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="10.0" />
-                              <Pane layoutX="769.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="769.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
-                                 <children>
-                                    <ImageView fx:id="playerLogo" fitHeight="165.0" fitWidth="165.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
-                                    <TextArea fx:id="playerInfo" disable="true" layoutX="10.0" layoutY="180.0" prefHeight="165.0" prefWidth="165.0" visible="false" />
-                                 </children>
-                              </Pane>
                            </children></AnchorPane>
                     </items>
                   </SplitPane>
@@ -70,13 +69,7 @@
                     <items>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                            <children>
-                              <Button fx:id="allOrgs" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#showAllOrgs" text="Показать все корпы" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0" />
-                              <TableView fx:id="orgsTable" editable="true" layoutX="5.0" layoutY="30.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="35.0">
-                                <columns>
-                                  <TableColumn fx:id="orgPath" minWidth="165.0" prefWidth="165.0" resizable="false" text="Logo" />
-                                  <TableColumn fx:id="orgName" minWidth="180.0" prefWidth="180.0" text="Name" />
-                                </columns>
-                              </TableView>
+                              <Button fx:id="allOrgs" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Показать все корпы" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0" />
                            </children>
                         </AnchorPane>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />

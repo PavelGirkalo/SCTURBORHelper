@@ -29,7 +29,7 @@ public class ParserHelper {
                 //запрос на сервер только для контактов без информации о корпах или для контактов с некорректным именем (у таких в поле корпы пометка +++)
                 if (player.getOrgs().size() == 0 || player.getOrgs().size() !=0 && player.getOrgs().get(0).getName().equals("+++++++")) {
                     doc = Jsoup.connect(full_name).get();
-                    local_orgs.addAllOrgs(takeOrgInfo(doc));
+                    //local_orgs.addAllOrgs(takeOrgInfo(doc));
                     Elements orgs = doc.select("a[href][class*='value']");
                     ArrayList<Org> attr = new ArrayList<>();
                     for (Element org : orgs) {
@@ -59,7 +59,6 @@ public class ParserHelper {
         String base = "https://robertsspaceindustries.com";
         ArrayList<Org> new_orgs = new ArrayList<>();
         Elements orgs = doc.select("div[class*='box-content org']");
-        Element th = orgs.select("div[class='thumb']").get(0).selectFirst("a");
         for(Element org : orgs) {
             if (org.select("div[class='thumb']").get(0).selectFirst("a")!=null) {
 
@@ -68,8 +67,8 @@ public class ParserHelper {
                     String main_orgname = main_info.attributes().get("href").substring(6);
                     //ссылка на лого корпы
                     String main_img = base + main_info.selectFirst("img").attr("src");
-                    Image image = new Image(main_img);
-                    new_orgs.add(new Org(main_orgname, main_img,image));
+                    //Image image = new Image(main_img);
+                    new_orgs.add(new Org(main_orgname, main_img,1));
 
             }
         }

@@ -12,6 +12,11 @@ public class Org {
         this.name = name;
     }
 
+    public Org(String name, int quantity) {
+        this.name = name;
+        this.quantity = quantity;
+    }
+
     public Org(String name, String logo_path) {
         this.name = name;
         this.logoPath = logo_path;

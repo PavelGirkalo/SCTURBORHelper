@@ -16,11 +16,8 @@ import java.util.ResourceBundle;
 public class Controller implements Initializable {
 
     int count = 0;
-    //ArrayList<File> files = new ArrayList<>();
     PlayerList players;
     OrgList orgs;
-    //ObservableList<Player> list = FXCollections.observableArrayList();
-
 
     //объекты верхней строки первой вкладки
     @FXML
@@ -60,31 +57,30 @@ public class Controller implements Initializable {
     @FXML
     Button viewButton;
 
-    //таблица и ее столбцы
+    //таблица с игроками и ее столбцы
     @FXML
     TableView<Player> finalTable;
     @FXML
-    TableColumn<Player,Integer> numberColumn;
+    TableColumn<Player, Integer> numberColumn;
     @FXML
-    TableColumn<Player,String> nicknameColumn;
+    TableColumn<Player, String> nicknameColumn;
     @FXML
-    TableColumn<Player,String> orgsColumn;
+    TableColumn<Player, String> orgsColumn;
     @FXML
-    TableColumn<Player,Flag> flagColumn;
+    TableColumn<Player, Flag> flagColumn;
+
+    //таблица с организациями и ее столбцы
+    @FXML
+    TableView<Org> orgsTable;
+    @FXML
+    TableColumn<Org, String> orgName;
+    @FXML
+    TableColumn<Org, Integer> orgQuantity;
 
 
     //объекты второй страницы
     @FXML
     Button allOrgs;
-
-    @FXML
-    TableView<Org> orgsTable;
-    @FXML
-    TableColumn<Org,ImageView> orgPath;
-    @FXML
-    TableColumn<Org,String> orgName;
-
-
 
     //объекты третьей страницы
     @FXML
@@ -102,15 +98,10 @@ public class Controller implements Initializable {
         nicknameColumn.setCellValueFactory(new PropertyValueFactory<>("userName"));
         orgsColumn.setCellValueFactory(new PropertyValueFactory<>("orgs"));
         flagColumn.setCellValueFactory(new PropertyValueFactory<>("flag"));
-        //orgsColumn.setCellFactory(new ToolTipCellFactory<>());
+        orgsColumn.setCellFactory(new ToolTipCellFactory<>());
 
-        orgPath.setCellValueFactory(new PropertyValueFactory<>("logo"));
-        orgPath.setCellFactory(new ImageCellFactory<>());
         orgName.setCellValueFactory(new PropertyValueFactory<>("name"));
-
-        //предоставление возможности редактирования ячеек в таблице
-        //orgsColumn.setCellFactory(TextFieldTableCell.<Player> forTableColumn());
-
+        orgQuantity.setCellValueFactory(new PropertyValueFactory<>("quantity"));
 
         //заполнение списка торговых локаций на странице торговли
         String loc_path = "./src/main/resources/Locations.csv";
@@ -133,7 +124,7 @@ public class Controller implements Initializable {
     public void openFile() {
         try {
             File orig_file = FileHelper.loadFile();
-            if(orig_file.getParent() != "") {
+            if (orig_file.getParent() != "") {
                 FileHelper.savePath(orig_file.getParent());
                 Image image = FileHelper.extractImage(orig_file);
                 imageList.get(count).setImage(image);
@@ -141,59 +132,59 @@ public class Controller implements Initializable {
             count++;
             viewCurrentImage(count);
             countImages.setText((Integer.toString(count)));
-            if(count==5)
+            if (count == 5)
                 openButton.setDisable(true);
-        } catch (NullPointerException e){
+        } catch (NullPointerException e) {
             System.out.println("File not found");
         }
     }
 
     public void clearAllImages() {
-        if(count==5)
+        if (count == 5)
             openButton.setDisable(false);
         count = 0;
         countImages.setText((Integer.toString(count)));
         viewCurrentImage(1);
-        for (ImageView im : imageList){
+        for (ImageView im : imageList) {
             im.setImage(null);
         }
         //files = new ArrayList<>();
         viewCurrentImage(1);
     }
 
-    public void viewCurrentImage(int number){
-        for (ImageView im:imageList){
+    public void viewCurrentImage(int number) {
+        for (ImageView im : imageList) {
             im.setVisible(false);
         }
-        imageList.get(number-1).setVisible(true);
+        imageList.get(number - 1).setVisible(true);
         currentPage.setText(Integer.toString(number));
         prevButton.setDisable(false);
         nextButton.setDisable(false);
-        if(number == 1) prevButton.setDisable(true);
-        else if(number == 5) nextButton.setDisable(true);
+        if (number == 1) prevButton.setDisable(true);
+        else if (number == 5) nextButton.setDisable(true);
     }
 
-    public void viewNextImage(){
-        for (int i = 0; i< imageList.size()-1; i++) {
-            if (imageList.get(i).isVisible()){
+    public void viewNextImage() {
+        for (int i = 0; i < imageList.size() - 1; i++) {
+            if (imageList.get(i).isVisible()) {
                 imageList.get(i).setVisible(false);
-                imageList.get(i+1).setVisible(true);
-                currentPage.setText(Integer.toString(i+2));
-                if(i==0) prevButton.setDisable(false);
-                else if(i==3) nextButton.setDisable(true);
+                imageList.get(i + 1).setVisible(true);
+                currentPage.setText(Integer.toString(i + 2));
+                if (i == 0) prevButton.setDisable(false);
+                else if (i == 3) nextButton.setDisable(true);
                 break;
             }
         }
     }
 
-    public void viewPreviousImage(){
-        for (int i = imageList.size()-1; i>0; i--) {
-            if (imageList.get(i).isVisible()){
+    public void viewPreviousImage() {
+        for (int i = imageList.size() - 1; i > 0; i--) {
+            if (imageList.get(i).isVisible()) {
                 imageList.get(i).setVisible(false);
-                imageList.get(i-1).setVisible(true);
+                imageList.get(i - 1).setVisible(true);
                 currentPage.setText(Integer.toString(i));
-                if(i==4) nextButton.setDisable(false);
-                else if(i==1) prevButton.setDisable(true);
+                if (i == 4) nextButton.setDisable(false);
+                else if (i == 1) prevButton.setDisable(true);
                 break;
             }
         }
@@ -207,17 +198,21 @@ public class Controller implements Initializable {
 
     }
 
-    public void viewInfo(){
+    public void viewInfo() {
 
         //запись распознанных имен в модель
-        players = ModelHelper.fillModel(players,tempList.getText());
+        players = ModelHelper.fillModel(players, tempList.getText());
         // запрос на сервер для выяснения списка корп у игроков
-        ParserHelper.getInfo(players,orgs);
+        ParserHelper.getInfo(players, orgs);
         //заполнение флага свой/чужой с проверкой игроков в черном и белом списках
         players = ModelHelper.checkPlayersFlag(players);
 
         //вывод модели на экран
         finalTable.setItems(TableHelper.fillTable(players));
+        orgs = ModelHelper.fillOrgModel(players);
+        orgsTable.setItems(TableHelper.fillOrgTable(orgs));
+        orgQuantity.setComparator(orgQuantity.getComparator());
+        orgsTable.getSortOrder().add(orgQuantity);
 
     }
 
@@ -239,9 +234,5 @@ public class Controller implements Initializable {
         stage.show();
         infoController.viewPlayerInfo(finalTable.getSelectionModel().getSelectedItem());*/
     }
-
-    public void showAllOrgs(){
-        orgsTable.setItems(TableHelper.fillOrgTable(orgs));
-    }
-
 }
+

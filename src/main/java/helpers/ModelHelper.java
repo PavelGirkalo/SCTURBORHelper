@@ -1,13 +1,12 @@
 package helpers;
 
-import model.Flag;
-import model.Player;
-import model.PlayerList;
+import model.*;
 
 import java.util.ArrayList;
 
 public class ModelHelper {
     public static PlayerList fillModel(PlayerList old_players, String list) {
+
         //считывание списка игроков из текстовой области
         String[] new_names = list.split("\\n");
         ArrayList<String> names = new ArrayList<>();
@@ -16,7 +15,7 @@ public class ModelHelper {
             names.add(name);
         }
 
-        //Заполнение модели со списка игроков
+        //Заполнение модели со списком игроков
         PlayerList players = new PlayerList(new ArrayList<>());
         for (String name : names) {
             players.add(new Player(name));
@@ -45,4 +44,17 @@ public class ModelHelper {
         return players;
     }
 
+    public static OrgList fillOrgModel(PlayerList players) {
+        OrgList orgs = new OrgList(new ArrayList<>());
+        for (Player player: players.getPlayerList()){
+            for (Org org : player.getOrgs()){
+                if(orgs.findOrg(org.getName())== null)
+                    orgs.add(new Org(org.getName(),1));
+                else
+                    orgs.findOrg(org.getName()).setQuantity(orgs.findOrg(org.getName()).getQuantity()+1);
+            }
+        }
+
+        return orgs;
+    }
 }

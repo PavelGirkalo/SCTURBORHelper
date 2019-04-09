@@ -19,10 +19,8 @@ public class TableHelper {
 
     public static ObservableList<Org> fillOrgTable(OrgList orgs) {
         ObservableList<Org> orgList = FXCollections.observableArrayList();
-        for (Org org : orgs.getOrgList()) {
-            org.setLogo(org.getLogoPath());
-            orgList.add(org);
-        }
+        for(Org org : orgs.getOrgList())
+                orgList.add(org);
         return orgList;
     }
 

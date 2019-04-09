@@ -1,6 +1,7 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class OrgList {
     private ArrayList<Org> orgList;
@@ -39,5 +40,8 @@ public class OrgList {
         for(Org org : new_orgs)
             if(findOrg(org.getName()) == null)
                 orgList.add(org);
+            else
+                findOrg(org.getName()).setQuantity(findOrg(org.getName()).getQuantity()+1);
     }
+
 }
