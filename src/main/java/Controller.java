@@ -104,7 +104,7 @@ public class Controller implements Initializable {
         orgQuantity.setCellValueFactory(new PropertyValueFactory<>("quantity"));
 
         //заполнение списка торговых локаций на странице торговли
-        String loc_path = "./src/main/resources/Locations.csv";
+        String loc_path = "./resources/Locations.csv";
         ArrayList<String> locations = FileHelper.readCSV(loc_path);
         for (int i = 0; i < locations.size(); i++) {
             buyBox.getItems().add(locations.get(i));
@@ -203,7 +203,7 @@ public class Controller implements Initializable {
         //запись распознанных имен в модель
         players = ModelHelper.fillModel(players, tempList.getText());
         // запрос на сервер для выяснения списка корп у игроков
-        ParserHelper.getInfo(players, orgs);
+        ParserHelper.getInfo(players);
         //заполнение флага свой/чужой с проверкой игроков в черном и белом списках
         players = ModelHelper.checkPlayersFlag(players);
 

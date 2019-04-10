@@ -29,7 +29,7 @@ public class Player {
     public Player(String userName) {
         this.userName = userName;
         this.orgs = new ArrayList<>();
-        this.flag = Flag.NEUTRAL;
+        this.flag = Flag.нейтрал;
     }
 
     public int getId() {

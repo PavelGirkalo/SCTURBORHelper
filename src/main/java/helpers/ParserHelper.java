@@ -17,7 +17,7 @@ public class ParserHelper {
 
 
 
-    public static void getInfo(PlayerList players, OrgList local_orgs) {
+    public static void getInfo(PlayerList players) {
 
         //запрос на сервер
         String prefix = "https://robertsspaceindustries.com/citizens/";
@@ -27,9 +27,8 @@ public class ParserHelper {
             Document doc;
             try {
                 //запрос на сервер только для контактов без информации о корпах или для контактов с некорректным именем (у таких в поле корпы пометка +++)
-                if (player.getOrgs().size() == 0 || player.getOrgs().size() !=0 && player.getOrgs().get(0).getName().equals("+++++++")) {
+                if (player.getOrgs().size() == 0 || player.getOrgs().size() !=0 && player.getOrgs().get(0).getName().equals("+++++ПРОВЕРЬТЕ ИМЯ ИГРОКА+++++")) {
                     doc = Jsoup.connect(full_name).get();
-                    //local_orgs.addAllOrgs(takeOrgInfo(doc));
                     Elements orgs = doc.select("a[href][class*='value']");
                     ArrayList<Org> attr = new ArrayList<>();
                     for (Element org : orgs) {
@@ -40,16 +39,16 @@ public class ParserHelper {
                                 attr.add(new Org("-"));
                         }
                         else
-                            attr.add(new Org("!!!REDACTED!!!"));
+                            attr.add(new Org("!!!СКРЫТА!!!"));
                     }
                     if (attr.size()== 0)
-                        attr.add(new Org("none"));
+                        attr.add(new Org("нет"));
                     player.setOrgs(attr);
 
                 }
             } catch (IOException e) {
                 ArrayList<Org> attr = new ArrayList<>();
-                attr.add(new Org("+++++++"));
+                attr.add(new Org("+++++ПРОВЕРЬТЕ ИМЯ ИГРОКА+++++"));
                 player.setOrgs(attr);
             }
         }

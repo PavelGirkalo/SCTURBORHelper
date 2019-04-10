@@ -33,13 +33,13 @@ public class ModelHelper {
     }
 
     public static PlayerList checkPlayersFlag(PlayerList players) {
-        PlayerList blackList = FileHelper.readPlayers("./src/main/resources/Enemies.csv");
-        PlayerList whiteList = FileHelper.readPlayers("./src/main/resources/Friends.csv");
+        PlayerList blackList = FileHelper.readPlayers("./resources/Enemies.csv");
+        PlayerList whiteList = FileHelper.readPlayers("./resources/Friends.csv");
         for(Player player : players.getPlayerList()) {
             if (blackList.findPlayer(player.getUserName()) != null)
-                player.setFlag(Flag.ENEMY);
+                player.setFlag(Flag.ВРАГ);
             if (whiteList.findPlayer(player.getUserName()) != null)
-                player.setFlag(Flag.FRIEND);
+                player.setFlag(Flag.друг);
         }
         return players;
     }

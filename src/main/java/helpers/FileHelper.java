@@ -78,7 +78,7 @@ public class FileHelper {
     public static File loadFile() {
         Properties properties = new Properties();
         try{
-            FileInputStream fis = new FileInputStream("src/main/resources/app/config.properties");
+            FileInputStream fis = new FileInputStream("resources/app/config.properties");
             properties.load(fis);
             String path = properties.getProperty("path");
             fis.close();
@@ -94,7 +94,7 @@ public class FileHelper {
     public static void savePath(String path) {
         Properties properties = new Properties();
         try{
-            FileOutputStream fos = new FileOutputStream("src/main/resources/app/config.properties");
+            FileOutputStream fos = new FileOutputStream("resources/app/config.properties");
             properties.setProperty("path",path);
             properties.store(fos,"");
             fos.close();

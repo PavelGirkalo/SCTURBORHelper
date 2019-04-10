@@ -19,7 +19,7 @@ public class RecognHelper {
 
     public static String recognImages(ArrayList<ImageView> images) {
         ITesseract instance = new Tesseract();
-        instance.setDatapath("src/main/resources/tessdata");
+        instance.setDatapath("resources/tessdata");
 
         //считывание из файлов изображений
         ArrayList<BufferedImage> buff_images = new ArrayList<>();
@@ -72,8 +72,8 @@ public class RecognHelper {
 
         //преобразование фрагмента в файл
         for (int i = 0; i < images.size(); i++) {
-            File file = new File("src/main/resources/tempfiles/temp" + i + ".jpg");
-            if (file.delete()) file = new File("src/main/resources/tempfiles/temp" + i + ".jpg");
+            File file = new File("resources/temp" + i + ".jpg");
+            if (file.delete()) file = new File("resources/temp" + i + ".jpg");
             try {
                 ImageIO.write(images.get(i), "jpg", file);
             } catch (IOException e1) {

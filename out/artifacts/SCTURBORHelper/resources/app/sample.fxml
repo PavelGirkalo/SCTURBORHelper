@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<TabPane maxHeight="800.0" maxWidth="1400.0" minHeight="800.0" minWidth="1400.0" prefHeight="800.0" prefWidth="1400.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+  <tabs>
+    <Tab text="Данные по игрокам на сервере">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="60.0" layoutY="14.0" text="Количество открытых файлов:" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="40.0" />
+                  <Label id="countImages" fx:id="countImages" layoutX="78.0" layoutY="24.0" text="0" AnchorPane.leftAnchor="180.0" AnchorPane.topAnchor="40.0" />
+                  <SplitPane dividerPositions="0.3609406952965235" layoutX="10.0" layoutY="50.0" prefHeight="670.0" prefWidth="980.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="60.0">
+                    <items>
+                      <AnchorPane maxHeight="670.0" maxWidth="350.0" minHeight="670.0" minWidth="350.0" prefHeight="670.0" prefWidth="350.0" SplitPane.resizableWithParent="false">
+                           <children>
+                              <ImageView id="imageView1" fx:id="imageView1" fitHeight="650.0" fitWidth="290.0" layoutX="30.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="10.0" />
+                              <ImageView id="imageView2" fx:id="imageView2" fitHeight="650.0" fitWidth="290.0" layoutX="30.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="10.0" />
+                              <ImageView id="imageView3" fx:id="imageView3" fitHeight="650.0" fitWidth="290.0" layoutX="30.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="10.0" />
+                              <ImageView id="imageView4" fx:id="imageView4" fitHeight="650.0" fitWidth="290.0" layoutX="30.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="10.0" />
+                              <ImageView id="imageView5" fx:id="imageView5" fitHeight="650.0" fitWidth="290.0" layoutX="30.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="10.0" />
+                              <Button id="prevButton" fx:id="prevButton" layoutY="322.0" mnemonicParsing="false" onAction="#viewPreviousImage" text="&lt;-" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="322.0" />
+                              <Button id="nextButton" fx:id="nextButton" layoutX="350.0" layoutY="322.0" mnemonicParsing="false" onAction="#viewNextImage" text="-&gt;" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="322.0" />
+                              <Label fx:id="currentPage" layoutX="1.0" layoutY="305.0" text="1" AnchorPane.leftAnchor="13.0" />
+                           </children>
+                        </AnchorPane>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="670.0" prefWidth="514.0">
+                           <children>
+                              <TableView fx:id="orgsTable" editable="true" prefHeight="650.0" prefWidth="250.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="10.0">
+                                <columns>
+                                    <TableColumn fx:id="orgName" minWidth="150.0" prefWidth="150.0" sortType="DESCENDING" text="Название корпорации" />
+                                    <TableColumn fx:id="orgQuantity" minWidth="80.0" resizable="false" sortType="DESCENDING" text="Количество" />
+                                </columns>
+                              </TableView>
+                              <TableView fx:id="finalTable" editable="true" layoutX="14.0" layoutY="14.0" onMouseClicked="#viewInfoAboutPlayer" prefHeight="650.0" prefWidth="550.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="210.0" AnchorPane.topAnchor="10.0">
+                                <columns>
+                                  <TableColumn fx:id="numberColumn" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" resizable="false" text="#" />
+                                  <TableColumn fx:id="nicknameColumn" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" sortable="false" text="Имя игрока" />
+                                  <TableColumn fx:id="orgsColumn" maxWidth="270.0" minWidth="270.0" prefWidth="270.0" sortable="false" text="Организации игрока" />
+                                  <TableColumn fx:id="flagColumn" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" resizable="false" text="Свой/чужой" />
+                                </columns>
+                              </TableView>
+                              <TextArea fx:id="tempList" layoutX="14.0" layoutY="14.0" prefHeight="650.0" prefWidth="200.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="10.0" />
+                           </children></AnchorPane>
+                    </items>
+                  </SplitPane>
+                  <Button fx:id="openButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#openFile" text="Открыть" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
+                  <Button fx:id="clearButton" layoutX="68.0" layoutY="10.0" mnemonicParsing="false" onAction="#clearAllImages" text="Удалить все" AnchorPane.leftAnchor="83.0" AnchorPane.topAnchor="10.0" />
+                  <Button fx:id="recognButton" layoutX="371.0" layoutY="10.0" mnemonicParsing="false" onAction="#recognizeImages" text="Распознать имена" AnchorPane.leftAnchor="370.0" AnchorPane.topAnchor="10.0" />
+                  <Button fx:id="viewButton" layoutX="516.0" layoutY="10.0" mnemonicParsing="false" onAction="#viewInfo" text="Инфо об игроках" AnchorPane.leftAnchor="575.0" AnchorPane.topAnchor="10.0" />
+               </children></AnchorPane>
+      </content>
+    </Tab>
+    <Tab disable="true" text="Работа с ресурсами">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <SplitPane dividerPositions="0.2663280116110305" layoutX="14.0" layoutY="14.0" prefHeight="160.0" prefWidth="200.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                    <items>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                           <children>
+                              <Button fx:id="allOrgs" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Показать все корпы" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0" />
+                           </children>
+                        </AnchorPane>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
+                    </items>
+                  </SplitPane>
+               </children></AnchorPane>
+      </content>
+    </Tab>
+      <Tab disable="true" text="Торговые дела">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <ComboBox id="buyBox" fx:id="buyBox" layoutX="14.0" layoutY="14.0" prefWidth="150.0" promptText="Место закупки" />
+                  <ComboBox id="sellBox" fx:id="sellBox" layoutX="184.0" layoutY="14.0" prefWidth="150.0" promptText="Место продажи" />
+               </children></AnchorPane>
+        </content>
+      </Tab>
+  </tabs>
+</TabPane>

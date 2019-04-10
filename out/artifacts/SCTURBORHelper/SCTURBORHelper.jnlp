@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="SCTURBORHelper.jnlp">
+  <information>
+    <title>Star Citizen TURBOR Helper</title>
+    <vendor>TURBOR</vendor>
+    <description>SCTURBORHelper</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="SCTURBORHelper.jar" size="39153007" download="eager" />
+    <jar href="commons-io-2.6.jar" size="214788" download="eager" />
+    <jar href="imgscalr-lib-4.2.jar" size="27893" download="eager" />
+    <jar href="jai-imageio-core-1.4.0.jar" size="628053" download="eager" />
+    <jar href="javafx-base-11-win.jar" size="750040" download="eager" />
+    <jar href="javafx-base-11.jar" size="302" download="eager" />
+    <jar href="javafx-controls-11-win.jar" size="2511103" download="eager" />
+    <jar href="javafx-controls-11.jar" size="306" download="eager" />
+    <jar href="javafx-fxml-11-win.jar" size="127394" download="eager" />
+    <jar href="javafx-fxml-11.jar" size="302" download="eager" />
+    <jar href="javafx-graphics-11-win.jar" size="6016908" download="eager" />
+    <jar href="javafx-graphics-11.jar" size="306" download="eager" />
+    <jar href="jboss-logging-3.1.4.GA.jar" size="57193" download="eager" />
+    <jar href="jboss-vfs-3.2.14.Final.jar" size="144281" download="eager" />
+    <jar href="jna-5.2.0.jar" size="1488769" download="eager" />
+    <jar href="jsoup-1.11.3.jar" size="395748" download="eager" />
+    <jar href="lept4j-1.11.0.jar" size="3389274" download="eager" />
+  </resources>
+  <jfx:javafx-desc  width="1400" height="800" main-class="Main"  name="SCTURBORHelper" />
+  <update check="always"/>
+</jnlp>

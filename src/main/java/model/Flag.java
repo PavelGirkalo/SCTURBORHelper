@@ -1,3 +1,3 @@
 package model;
 
-public enum Flag {ENEMY,FRIEND,NEUTRAL}
+public enum Flag {нейтрал,друг,ВРАГ}

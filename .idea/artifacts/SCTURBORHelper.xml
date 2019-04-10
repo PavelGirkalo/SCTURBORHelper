@@ -1,0 +1,45 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" name="SCTURBORHelper">
+    <output-path>$PROJECT_DIR$/out/artifacts/SCTURBORHelper</output-path>
+    <properties id="javafx-properties">
+      <options>
+        <option name="alias" value="" />
+        <option name="appClass" value="Main" />
+        <option name="description" value="" />
+        <option name="height" value="800" />
+        <option name="htmlPlaceholderId" value="" />
+        <option name="keystore" value="" />
+        <option name="nativeBundle" value="exe" />
+        <option name="title" value="Star Citizen TURBOR Helper" />
+        <option name="updateMode" value="always" />
+        <option name="vendor" value="TURBOR" />
+        <option name="version" value="1.0" />
+        <option name="width" value="1400" />
+      </options>
+    </properties>
+    <root id="root">
+      <element id="archive" name="SCTURBORHelper.jar">
+        <element id="module-output" name="SCTURBORHelper" />
+        <element id="library" level="project" name="Maven: com.github.jai-imageio:jai-imageio-core:1.4.0" />
+        <element id="library" level="project" name="Maven: net.java.dev.jna:jna:5.2.0" />
+        <element id="library" level="project" name="Maven: net.sourceforge.lept4j:lept4j:1.11.0" />
+        <element id="library" level="project" name="Maven: org.imgscalr:imgscalr-lib:4.2" />
+        <element id="library" level="project" name="Maven: org.jboss.logging:jboss-logging:3.1.4.GA" />
+        <element id="library" level="project" name="Maven: org.jboss:jboss-vfs:3.2.14.Final" />
+        <element id="library" level="project" name="Maven: org.jsoup:jsoup:1.11.3" />
+        <element id="library" level="project" name="Maven: org.openjfx:javafx-base:11" />
+        <element id="library" level="project" name="Maven: org.openjfx:javafx-base:win:11" />
+        <element id="library" level="project" name="Maven: org.openjfx:javafx-controls:11" />
+        <element id="library" level="project" name="Maven: org.openjfx:javafx-controls:win:11" />
+        <element id="library" level="project" name="Maven: org.openjfx:javafx-fxml:11" />
+        <element id="library" level="project" name="Maven: org.openjfx:javafx-fxml:win:11" />
+        <element id="library" level="project" name="Maven: org.openjfx:javafx-graphics:11" />
+        <element id="library" level="project" name="Maven: org.openjfx:javafx-graphics:win:11" />
+        <element id="library" level="project" name="Maven: commons-io:commons-io:2.6" />
+      </element>
+      <element id="directory" name="resources">
+        <element id="dir-copy" path="$PROJECT_DIR$/resources" />
+      </element>
+    </root>
+  </artifact>
+</component>
