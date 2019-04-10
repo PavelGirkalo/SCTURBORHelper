@@ -37,7 +37,7 @@ public class RecognHelper {
         String result = "";
         for (int i = 0; i <processed_files.size(); i++){
             try {
-                result += instance.doOCR(processed_files.get(i));
+                result += instance.doOCR(processed_files.get(i)) + "\n";
             } catch (TesseractException e1) {
                 //e1.printStackTrace();
             }

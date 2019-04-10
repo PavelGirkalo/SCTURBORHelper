@@ -42,6 +42,8 @@ public class Controller implements Initializable {
     @FXML
     ImageView imageView5;
     @FXML
+    ImageView imageView6;
+    @FXML
     Button prevButton;
     @FXML
     Button nextButton;
@@ -117,6 +119,7 @@ public class Controller implements Initializable {
         imageList.add(imageView3);
         imageList.add(imageView4);
         imageList.add(imageView5);
+        imageList.add(imageView6);
         viewCurrentImage(1);
         prevButton.setDisable(true);
     }
@@ -132,7 +135,7 @@ public class Controller implements Initializable {
             count++;
             viewCurrentImage(count);
             countImages.setText((Integer.toString(count)));
-            if (count == 5)
+            if (count == 6)
                 openButton.setDisable(true);
         } catch (NullPointerException e) {
             System.out.println("File not found");
@@ -140,7 +143,7 @@ public class Controller implements Initializable {
     }
 
     public void clearAllImages() {
-        if (count == 5)
+        if (count == 6)
             openButton.setDisable(false);
         count = 0;
         countImages.setText((Integer.toString(count)));
@@ -161,7 +164,7 @@ public class Controller implements Initializable {
         prevButton.setDisable(false);
         nextButton.setDisable(false);
         if (number == 1) prevButton.setDisable(true);
-        else if (number == 5) nextButton.setDisable(true);
+        else if (number == 6) nextButton.setDisable(true);
     }
 
     public void viewNextImage() {
@@ -171,7 +174,7 @@ public class Controller implements Initializable {
                 imageList.get(i + 1).setVisible(true);
                 currentPage.setText(Integer.toString(i + 2));
                 if (i == 0) prevButton.setDisable(false);
-                else if (i == 3) nextButton.setDisable(true);
+                else if (i == 4) nextButton.setDisable(true);
                 break;
             }
         }
@@ -183,7 +186,7 @@ public class Controller implements Initializable {
                 imageList.get(i).setVisible(false);
                 imageList.get(i - 1).setVisible(true);
                 currentPage.setText(Integer.toString(i));
-                if (i == 4) nextButton.setDisable(false);
+                if (i == 5) nextButton.setDisable(false);
                 else if (i == 1) prevButton.setDisable(true);
                 break;
             }
@@ -194,7 +197,7 @@ public class Controller implements Initializable {
         //распознавание
         String nicknameList = RecognHelper.recognImages(imageList);
         //вывод распознанного текста в текстовое поле для проверки корректности распознавания
-        tempList.setText(tempList.getText() + nicknameList);
+        tempList.setText(tempList.getText() + "\n" + nicknameList);
 
     }
 

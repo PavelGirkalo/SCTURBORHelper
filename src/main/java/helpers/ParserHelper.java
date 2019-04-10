@@ -27,7 +27,7 @@ public class ParserHelper {
             Document doc;
             try {
                 //запрос на сервер только для контактов без информации о корпах или для контактов с некорректным именем (у таких в поле корпы пометка +++)
-                if (player.getOrgs().size() == 0 || player.getOrgs().size() !=0 && player.getOrgs().get(0).getName().equals("+++++ПРОВЕРЬТЕ ИМЯ ИГРОКА+++++")) {
+                if (player.getOrgs().size() == 0 || player.getOrgs().size() !=0 && player.getOrgs().get(0).getName().equals("!!!ПРОВЕРЬТЕ ИМЯ!!!")) {
                     doc = Jsoup.connect(full_name).get();
                     Elements orgs = doc.select("a[href][class*='value']");
                     ArrayList<Org> attr = new ArrayList<>();
@@ -48,7 +48,7 @@ public class ParserHelper {
                 }
             } catch (IOException e) {
                 ArrayList<Org> attr = new ArrayList<>();
-                attr.add(new Org("+++++ПРОВЕРЬТЕ ИМЯ ИГРОКА+++++"));
+                attr.add(new Org("!!!ПРОВЕРЬТЕ ИМЯ!!!"));
                 player.setOrgs(attr);
             }
         }
