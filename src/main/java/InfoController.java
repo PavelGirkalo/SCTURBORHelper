@@ -1,48 +1,68 @@
 import helpers.FileHelper;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.Tooltip;
 import model.Org;
 import model.OrgList;
 import model.Player;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 
 import javax.swing.*;
+import java.io.IOException;
 
 public class InfoController{
 
-    JLabel nameLabel;
-
-    JLabel orgLabel;
-
-    JLabel imageView;
+    TextArea tempList;
 
     private Controller mainWindow;
 
     public InfoController(){
-        nameLabel = new JLabel();
-        nameLabel.setLocation(180,10);
-
-        orgLabel = new JLabel();
-        orgLabel.setLocation(180,30);
-
-        imageView = new JLabel();
-        imageView.setLocation(10,10);
+        tempList = new TextArea();
 
     }
 
     public void viewPlayerInfo(Player player) {
-        OrgList orgs = FileHelper.readOrgs("./src/main/resources/Orgs.csv");
-        OrgList new_orgs = new OrgList(player.getOrgs());
-        for (Org org : new_orgs.getOrgList()){
-            if(orgs.findOrg(org.getName())!= null)
-                org.setLogoPath(orgs.findOrg(org.getName()).getLogoPath());
+        String base = "https://robertsspaceindustries.com/citizens/";
+        Document doc;
+        String out;
+        try {
+            doc = Jsoup.connect(base + player.getUserName()).get();
+            Element el = doc.selectFirst("div[class=info]");
+            String comm = el.select("strong[class=value]").get(0).text();
+            String handle = el.select("strong[class=value]").get(1).text();
+            String title = el.select("span[class=value]").text();
+
+            String enlisted = "";
+            String location = "";
+            String fluency = "";
+            el = doc.selectFirst("div[class=inner]");
+            Elements entries = el.select("p[class=entry]");
+            for(Element element : entries){
+                if(element.select("span[class=label]").get(0).text().equals("Enlisted"))
+                    enlisted = element.select("strong[class=value]").get(0).text();
+                if(element.select("span[class=label]").get(0).text().equals("Location"))
+                    location = element.select("strong[class=value]").get(0).text();
+                if(element.select("span[class=label]").get(0).text().equals("Fluency"))
+                    fluency = element.select("strong[class=value]").get(0).text();
+            }
+
+            out = "Community Moniker: " + comm + '\n' +
+                    "Handle: " + handle + '\n' +
+                    "Титул/ачивка: " + title + '\n'  +
+                    "Зарегистрирован: " + enlisted + '\n' +
+                    "Локация: " + location + '\n' +
+                    "Язык: " + fluency;
+            tempList.setText(out);
+        } catch (IOException e) {
+            out = "No info";
+            tempList.setText(out);
         }
 
 
-
-        //Scene secondScene = new Scene(secondaryLayout, 300, 300);
-
+            //Scene secondScene = new Scene(secondaryLayout, 300, 300);
             //AnchorPane root = FXMLLoader.load(getClass().getResource("app/infoWindow.fxml"));
-            nameLabel.setText(player.getUserName());
-            orgLabel.setText(new_orgs.getOrgList().get(0).getName());
-            imageView.setIcon(new ImageIcon(new_orgs.getOrgList().get(0).getLogoPath()));
             //root.getChildren().addAll(imageView,nameLabel,orgLabel);
             //root.getChildren();
 

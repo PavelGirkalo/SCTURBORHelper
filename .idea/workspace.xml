@@ -42,9 +42,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/recogn/util/ImageIOHelper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/recogn/util/LoadLibs.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/recognition/software/jdeskew/ImageDeskew.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/recognition/software/jdeskew/ImageUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/net/sourceforge/tess4j/ITessAPI.java" />
         <option value="$PROJECT_DIR$/src/main/java/net/sourceforge/tess4j/TessAPI1.java" />
@@ -74,9 +71,7 @@
         <option value="$PROJECT_DIR$/src/test/java/Test.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/model/PlayerList.java" />
-        <option value="$PROJECT_DIR$/src/test/java/myTests.java" />
         <option value="$PROJECT_DIR$/src/main/resources/app/infoWindow.fxml" />
-        <option value="$PROJECT_DIR$/src/main/java/InfoController.java" />
         <option value="$PROJECT_DIR$/src/main/java/ToolTipCellFactory.java" />
         <option value="$PROJECT_DIR$/src/main/java/ImageCellFActory.java" />
         <option value="$PROJECT_DIR$/src/main/java/ImageCellFactory.java" />
@@ -90,9 +85,14 @@
         <option value="$PROJECT_DIR$/src/main/java/helpers/ParserHelper.java" />
         <option value="$PROJECT_DIR$/resources/app/sample.fxml" />
         <option value="$PROJECT_DIR$/src/main/java/Main.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Controller.java" />
         <option value="$PROJECT_DIR$/src/main/java/helpers/RecognHelper.java" />
         <option value="$PROJECT_DIR$/src/main/java/helpers/FileHelper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ToolTipOrgInfoFactory.java" />
+        <option value="$PROJECT_DIR$/src/test/java/myTests.java" />
+        <option value="$PROJECT_DIR$/src/main/java/InfoController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ToolTipPlayerInfoFactory.java" />
+        <option value="$PROJECT_DIR$/src/main/java/PlayerInfo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Controller.java" />
       </list>
     </option>
   </component>
@@ -157,11 +157,6 @@
             <path>
               <item name="SCTURBORHelper" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="SCTURBORHelper" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="resources" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="SCTURBORHelper" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="SCTURBORHelper" type="2674bda8:ScopeViewTreeModel$GroupNode" />
               <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
@@ -181,9 +176,14 @@
               <item name="SCTURBORHelper" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="SCTURBORHelper" type="2674bda8:ScopeViewTreeModel$GroupNode" />
               <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="test" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="SCTURBORHelper" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="SCTURBORHelper" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="test" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="helpers" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
           </expand>
           <select />
@@ -197,7 +197,7 @@
     <property name="GenerateAntBuildDialog.enableUiFormCompile" value="true" />
     <property name="GenerateAntBuildDialog.forceTargetJdk" value="true" />
     <property name="GenerateAntBuildDialog.outputFileNameProperty" value="scturborhelper" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554887158609" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555262169355" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources" />
     <property name="project.structure.last.edited" value="Artifacts" />
@@ -209,8 +209,8 @@
     <key name="MoveMembersDialog.RECENTS_KEY">
       <recent name="helpers.ParserHelper" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Devel\SCTURBORHelper\src\test\java" />
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Docs\Devel\SCTURBORHelper\" />
@@ -218,6 +218,9 @@
       <recent name="C:\Devel\SCTURBORHelper\src\test" />
       <recent name="C:\Devel\SCTURBORHelper\src" />
       <recent name="D:\Docs\Devel\SCTURBORHelper\src\main\resources\app" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Devel\SCTURBORHelper\src\test\java" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -264,9 +267,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="myTests.playerTest" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="SCTURBORHelper" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="myTests" />
+      <option name="METHOD_NAME" value="playerTest" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="TestNG.myTests.playerTest" />
         <item itemvalue="TestNG.myTests.orgsTest" />
         <item itemvalue="TestNG.myTests.myTests" />
       </list>
@@ -286,35 +302,35 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="myTests_myTests - 2019.04.04 at 17h 58m 48s.xml">
-      <configuration name="myTests.myTests" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="myTests_myTests - 2019.04.05 at 08h 40m 23s.xml">
-      <configuration name="myTests.myTests" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="myTests_myTests - 2019.04.05 at 08h 41m 59s.xml">
-      <configuration name="myTests.myTests" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="myTests_myTests - 2019.04.05 at 08h 42m 18s.xml">
-      <configuration name="myTests.myTests" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="myTests_myTests - 2019.04.05 at 09h 25m 25s.xml">
-      <configuration name="myTests.myTests" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="myTests_myTests - 2019.04.05 at 10h 32m 29s.xml">
-      <configuration name="myTests.myTests" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="myTests_myTests - 2019.04.05 at 10h 42m 04s.xml">
-      <configuration name="myTests.myTests" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="myTests_myTests - 2019.04.05 at 10h 42m 38s.xml">
-      <configuration name="myTests.myTests" configurationId="TestNG" />
-    </history-entry>
     <history-entry file="myTests_myTests - 2019.04.05 at 10h 43m 45s.xml">
       <configuration name="myTests.myTests" configurationId="TestNG" />
     </history-entry>
     <history-entry file="myTests_myTests - 2019.04.05 at 11h 04m 02s.xml">
       <configuration name="myTests.myTests" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="myTests_orgsTest - 2019.04.14 at 19h 49m 46s.xml">
+      <configuration name="myTests.orgsTest" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="myTests_orgsTest - 2019.04.14 at 19h 50m 38s.xml">
+      <configuration name="myTests.orgsTest" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="myTests_orgsTest - 2019.04.14 at 19h 51m 17s.xml">
+      <configuration name="myTests.orgsTest" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="myTests_orgsTest - 2019.04.14 at 19h 55m 13s.xml">
+      <configuration name="myTests.orgsTest" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="myTests_orgsTest - 2019.04.14 at 20h 05m 39s.xml">
+      <configuration name="myTests.orgsTest" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="myTests_playerTest - 2019.04.14 at 20h 15m 58s.xml">
+      <configuration name="myTests.playerTest" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="myTests_playerTest - 2019.04.14 at 20h 18m 18s.xml">
+      <configuration name="myTests.playerTest" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="myTests_playerTest - 2019.04.14 at 20h 22m 37s.xml">
+      <configuration name="myTests.playerTest" configurationId="TestNG" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
@@ -325,7 +341,7 @@
       <window_info id="Capture Tool" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Image Layers" order="4" />
-      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.14443219" />
+      <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.14608599" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="0" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" weight="0.32936078" />
@@ -334,7 +350,7 @@
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Find" order="5" weight="0.32936078" />
       <window_info anchor="bottom" id="Run" order="6" weight="0.32606438" />
-      <window_info anchor="bottom" id="Debug" order="7" weight="0.39869988" />
+      <window_info anchor="bottom" id="Debug" order="7" weight="0.39771548" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="10" />
@@ -363,22 +379,40 @@
           <option name="timeStamp" value="45" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/myTests.java</url>
-          <line>36</line>
-          <properties />
-          <option name="timeStamp" value="65" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/myTests.java</url>
-          <line>46</line>
-          <properties />
-          <option name="timeStamp" value="70" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/model/OrgList.java</url>
           <line>40</line>
           <properties />
           <option name="timeStamp" value="89" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/myTests.java</url>
+          <line>49</line>
+          <properties />
+          <option name="timeStamp" value="92" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/myTests.java</url>
+          <line>70</line>
+          <properties />
+          <option name="timeStamp" value="93" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/myTests.java</url>
+          <line>79</line>
+          <properties />
+          <option name="timeStamp" value="94" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Controller.java</url>
+          <line>233</line>
+          <properties />
+          <option name="timeStamp" value="95" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/PlayerInfo.java</url>
+          <line>12</line>
+          <properties />
+          <option name="timeStamp" value="96" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -425,16 +459,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/src.zip!/javax/imageio/ImageIO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="1295" column="35" lean-forward="true" selection-start-line="1295" selection-start-column="35" selection-end-line="1295" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/Locations.csv">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/app/config.properties" />
     <entry file="file://$PROJECT_DIR$/resources/Enemies.csv" />
     <entry file="file://$PROJECT_DIR$/resources/Friends.csv" />
@@ -506,17 +530,6 @@
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/javafx-src.zip!/javafx/scene/control/Tooltip.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/myTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="403">
-          <caret line="43" selection-start-line="43" selection-end-line="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1559#1560#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/javafx-src.zip!/javafx/beans/property/ObjectPropertyBase.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="193">
@@ -538,16 +551,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
           <caret line="119" column="38" selection-start-line="119" selection-start-column="38" selection-end-line="119" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/javafx-src.zip!/javafx/scene/control/TableView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="1000" selection-start-line="1000" selection-end-line="1000" />
-          <folding>
-            <element signature="e#46988#46989#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -645,16 +648,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ToolTipCellFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/model/OrgList.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="595">
@@ -708,23 +701,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/InfoController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="53" column="65" selection-start-line="53" selection-start-column="65" selection-end-line="53" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ImageCellFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="46" selection-start-line="10" selection-start-column="46" selection-end-line="10" selection-end-column="46" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -753,16 +729,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="448">
-          <caret line="199" column="67" lean-forward="true" selection-start-line="199" selection-start-column="67" selection-end-line="199" selection-end-column="67" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -773,10 +739,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/app/sample.fxml">
-      <provider editor-type-id="text-editor" />
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/helpers/FileHelper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="598">
@@ -786,6 +748,92 @@
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ToolTipCellFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="19" column="45" lean-forward="true" selection-start-line="18" selection-start-column="20" selection-end-line="19" selection-end-column="45" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ToolTipOrgInfoFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="37" lean-forward="true" selection-end-line="50" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#741#742#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/myTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="533">
+          <caret line="90" column="9" lean-forward="true" selection-start-line="65" selection-start-column="8" selection-end-line="90" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/InfoController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="26" column="8" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ImageCellFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="46" selection-start-line="10" selection-start-column="46" selection-end-line="10" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/PlayerInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="16" column="79" lean-forward="true" selection-start-line="16" selection-start-column="79" selection-end-line="16" selection-end-column="79" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="240" column="26" selection-start-line="240" selection-start-column="26" selection-end-line="240" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/javafx-src.zip!/javafx/scene/control/TableView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="1000" selection-start-line="1000" selection-end-line="1000" />
+          <folding>
+            <element signature="e#46988#46989#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/app/sample.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="69" column="155" selection-start-line="69" selection-start-column="155" selection-end-line="69" selection-end-column="155" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
   </component>
   <component name="masterDetails">

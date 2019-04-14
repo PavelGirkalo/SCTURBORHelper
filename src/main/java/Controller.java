@@ -1,10 +1,14 @@
 import helpers.*;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import model.*;
 
 import java.io.File;
@@ -98,11 +102,14 @@ public class Controller implements Initializable {
         //настройка связи между моделью с данными и таблицей на экране
         numberColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
         nicknameColumn.setCellValueFactory(new PropertyValueFactory<>("userName"));
+        //nicknameColumn.setCellFactory(new ToolTipPlayerInfoFactory<>());
         orgsColumn.setCellValueFactory(new PropertyValueFactory<>("orgs"));
+        //orgsColumn.setCellFactory(new ToolTipCellFactory<>());
         flagColumn.setCellValueFactory(new PropertyValueFactory<>("flag"));
-        orgsColumn.setCellFactory(new ToolTipCellFactory<>());
+
 
         orgName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        //orgName.setCellFactory(new ToolTipOrgInfoFactory<>());
         orgQuantity.setCellValueFactory(new PropertyValueFactory<>("quantity"));
 
         //заполнение списка торговых локаций на странице торговли
@@ -221,21 +228,25 @@ public class Controller implements Initializable {
 
 
     public void viewInfoAboutPlayer() throws IOException {
-        /*
+
         //FXMLLoader loader = new FXMLLoader(getClass().getResource("/app/infoWindow.fxml"));
-        AnchorPane infoWindow = new AnchorPane();
-        InfoController infoController = new InfoController();
-        infoController.setMainWindow(this);
+
+        AnchorPane root = new AnchorPane();
+        TextArea area = new TextArea();
+        area.setText(PlayerInfo.getPlayerInfo(finalTable.getSelectionModel().getSelectedItem()));
+
+        root.getChildren().add(area);
 
         Stage stage = new Stage();
-        stage.setHeight(300);
+        stage.setHeight(150);
         stage.setWidth(300);
         stage.initModality(Modality.WINDOW_MODAL);
         stage.initOwner(finalTable.getScene().getWindow());
-        Scene scene = new Scene(infoWindow);
+
+        Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-        infoController.viewPlayerInfo(finalTable.getSelectionModel().getSelectedItem());*/
+
     }
 }
 
