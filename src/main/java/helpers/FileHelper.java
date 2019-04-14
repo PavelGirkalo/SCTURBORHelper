@@ -123,7 +123,6 @@ public class FileHelper {
                 }
             } else if (im_height == 1440) {
                 if (im_width == 2560) { // соотношение 16:9
-
                     BufferedImage temp_image;// = new BufferedImage(1920, 1080, BufferedImage.TYPE_INT_RGB);
                     temp_image = Scalr.resize(orig_image, Scalr.Method.BALANCED, 1920, 1080);
                     image = temp_image.getSubimage(temp_image.getWidth() - 380, 215, 290, temp_image.getHeight() - 430);
