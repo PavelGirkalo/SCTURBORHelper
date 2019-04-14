@@ -233,12 +233,18 @@ public class Controller implements Initializable {
 
         AnchorPane root = new AnchorPane();
         TextArea area = new TextArea();
-        area.setText(PlayerInfo.getPlayerInfo(finalTable.getSelectionModel().getSelectedItem()));
+        area.setPrefRowCount(11);
+        ArrayList<String> result = PlayerInfo.getPlayerInfo(finalTable.getSelectionModel().getSelectedItem());
+        //допилить проверку возвращаемого значения для кривого игрока (когда нет инфы о корпе и игроке)
+        area.setText(result.get(1) + result.get(3));
+        area.setEditable(false);
 
         root.getChildren().add(area);
 
         Stage stage = new Stage();
-        stage.setHeight(150);
+        stage.setTitle(finalTable.getSelectionModel().getSelectedItem().getUserName());
+        stage.getIcons().add(new Image(result.get(0)));
+        //stage.setHeight(245);
         stage.setWidth(300);
         stage.initModality(Modality.WINDOW_MODAL);
         stage.initOwner(finalTable.getScene().getWindow());
