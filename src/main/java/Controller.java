@@ -227,32 +227,68 @@ public class Controller implements Initializable {
     }
 
 
-    public void viewInfoAboutPlayer() throws IOException {
-
-        //FXMLLoader loader = new FXMLLoader(getClass().getResource("/app/infoWindow.fxml"));
-
+    public void viewInfoAboutPlayer() {
         AnchorPane root = new AnchorPane();
         TextArea area = new TextArea();
         area.setPrefRowCount(11);
-        ArrayList<String> result = PlayerInfo.getPlayerInfo(finalTable.getSelectionModel().getSelectedItem());
-        //допилить проверку возвращаемого значения для кривого игрока (когда нет инфы о корпе и игроке)
+        ArrayList<String> result;
+        try {
+            result = ParserHelper.getPlayerInfo(finalTable.getSelectionModel().getSelectedItem());
+        } catch (NullPointerException e) {
+            result = new ArrayList<>();
+            result.add("/app/tur-logo.jpg");
+            result.add("Таблица пуста");
+            result.add("/app/tur-logo.jpg");
+            result.add("");
+        }
         area.setText(result.get(1) + result.get(3));
         area.setEditable(false);
-
         root.getChildren().add(area);
 
         Stage stage = new Stage();
         stage.setTitle(finalTable.getSelectionModel().getSelectedItem().getUserName());
         stage.getIcons().add(new Image(result.get(0)));
-        //stage.setHeight(245);
-        stage.setWidth(300);
+        stage.setWidth(400);
         stage.initModality(Modality.WINDOW_MODAL);
         stage.initOwner(finalTable.getScene().getWindow());
 
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-
     }
+
+    public void viewInfoAboutOrg() {
+        AnchorPane root = new AnchorPane();
+        TextArea area = new TextArea();
+        area.setPrefRowCount(5);
+        ArrayList<String> result;
+        try {
+            result = ParserHelper.getOrgInfo(orgsTable.getSelectionModel().getSelectedItem());
+        } catch (NullPointerException e) {
+            result = new ArrayList<>();
+            result.add("/app/tur-logo.jpg");
+            result.add("Нет информации об организации");
+
+        }
+
+        area.setText(result.get(1));
+        area.setEditable(false);
+        root.getChildren().add(area);
+
+        Stage stage = new Stage();
+        stage.setTitle(orgsTable.getSelectionModel().getSelectedItem().getName());
+        stage.getIcons().add(new Image(result.get(0)));
+        stage.setWidth(300);
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.initOwner(orgsTable.getScene().getWindow());
+
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+
+
+
 }
 
