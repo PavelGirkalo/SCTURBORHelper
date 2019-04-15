@@ -18,13 +18,15 @@ public class ModelHelper {
         //Заполнение модели со списком игроков
         PlayerList players = new PlayerList(new ArrayList<>());
         for (String name : names) {
-            players.add(new Player(name));
-            //проверка наличия ранее добавленных игроков в список игроков
-            if(old_players.getPlayerList() != null && old_players.findPlayer(name) != null)
-                if(old_players.findPlayer(name).getUserName().equals(name)){
-                    players.findPlayer(name).setOrgs(old_players.findPlayer(name).getOrgs());
-                    players.findPlayer(name).setFlag(old_players.findPlayer(name).getFlag());
-                }
+            if(players.findPlayer(name) == null) {
+                players.add(new Player(name));
+                //проверка наличия ранее добавленных игроков в список игроков
+                if (old_players.getPlayerList() != null && old_players.findPlayer(name) != null)
+                    if (old_players.findPlayer(name).getUserName().equals(name)) {
+                        players.findPlayer(name).setOrgs(old_players.findPlayer(name).getOrgs());
+                        players.findPlayer(name).setFlag(old_players.findPlayer(name).getFlag());
+                    }
+            }
         }
         //нумерация игроков в модели
         for (int i = 0; i < players.getPlayerList().size(); i++)
@@ -37,9 +39,9 @@ public class ModelHelper {
         PlayerList whiteList = FileHelper.readPlayers("./resources/Friends.csv");
         for(Player player : players.getPlayerList()) {
             if (blackList.findPlayer(player.getUserName()) != null)
-                player.setFlag(Flag.ВРАГ);
+                player.setFlag('✘');
             if (whiteList.findPlayer(player.getUserName()) != null)
-                player.setFlag(Flag.друг);
+                player.setFlag('❤');
         }
         return players;
     }
@@ -54,7 +56,6 @@ public class ModelHelper {
                     orgs.findOrg(org.getName()).setQuantity(orgs.findOrg(org.getName()).getQuantity()+1);
             }
         }
-
         return orgs;
     }
 }

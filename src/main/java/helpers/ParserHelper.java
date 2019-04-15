@@ -77,7 +77,7 @@ public class ParserHelper {
 
         } catch (IOException e) {
             outArray = new ArrayList<>();
-            outArray.add("/app/tur-logo.jpg");
+            outArray.add("https://robertsspaceindustries.com/rsi/static/images/organization/public-orgs-thumb-redacted-bg.png");
             outArray.add("Нет информации об организации");
         }
         return outArray;
@@ -117,11 +117,11 @@ public class ParserHelper {
                     fluency = element.select("strong[class=value]").get(0).text();
             }
             out = "Community Moniker: " + comm + '\n' +
-                    "Handle: " + handle + '\n' +
-                    "Титул/ачивка: " + title + '\n'  +
-                    "Зарегистрирован: " + enlisted + '\n' +
-                    "Локация: " + location + '\n' +
-                    "Язык: " + fluency + '\n';
+                  "Handle: " + handle + '\n' +
+                  "Титул/ачивка: " + title + '\n'  +
+                  "Зарегистрирован: " + enlisted + '\n' +
+                  "Локация: " + location + '\n' +
+                  "Язык: " + fluency + '\n';
             outArray.add(out);
 
 
@@ -132,7 +132,7 @@ public class ParserHelper {
             if (img_el != null)
                 outArray.add(base + img_el.select("img").attr("src"));
             else
-                outArray.add("/app/tur-logo.jpg");
+                outArray.add("https://robertsspaceindustries.com/rsi/static/images/organization/public-orgs-thumb-redacted-bg.png");
 
             //добавление в результат поля c информацией о корпе игрока
             el = el.selectFirst("div[class*=inner]");
@@ -147,7 +147,6 @@ public class ParserHelper {
                 org_rank = "REDACTED";
                 rank_num = "REDACTED";
             } else if (outArray.get(2).equals("/app/tur-logo.jpg")) {
-
             } else {
                 full_name = entries.get(0).select("a").get(0).text();
                 SID = entries.get(1).select("strong[class*=value]").get(0).text();
@@ -156,24 +155,20 @@ public class ParserHelper {
                 if (el.select("span[class=active]").size() != 0)
                     rank_num = el.select("span[class=active]").size() + " из 5";
             }
-
-            out = '\n' + "Полное имя организации: " + full_name + '\n' +
-                    "Spectrum Identification (SID): " + SID + '\n' +
-                    "Ранг игрока в организации: " + org_rank + '\n'  +
-                    "Уровень игрока в организации: " + rank_num;
-
+            out = "";
+            out = "Полное имя организации: " + full_name + '\n' +
+                  "Spectrum Identification (SID): " + SID + '\n' +
+                  "Ранг игрока в организации: " + org_rank + '\n'  +
+                  "Уровень игрока в организации: " + rank_num;
             outArray.add(out);
         } catch (IOException e) {
             outArray = new ArrayList<>();
-            outArray.add("/app/tur-logo.jpg");
+            outArray.add("https://robertsspaceindustries.com/rsi/static/images/organization/public-orgs-thumb-redacted-bg.png");
             outArray.add("Нет информации об игроке");
-            outArray.add("/app/tur-logo.jpg");
-            outArray.add('\n' + "Нет информации об организации игрока");
+            outArray.add("https://robertsspaceindustries.com/rsi/static/images/organization/public-orgs-thumb-redacted-bg.png");
+            outArray.add("Нет информации об организации игрока");
         }
         return outArray;
-
     }
-
-
 
 }

@@ -6,9 +6,9 @@ public class Player {
     private int id;
     private String userName;
     private ArrayList<Org> orgs;
-    private Flag flag;
+    private char flag;
 
-    public Player(int id, String userName, ArrayList<Org> orgs, Flag flag) {
+    public Player(int id, String userName, ArrayList<Org> orgs, char flag) {
         this.id = id;
         this.userName = userName;
         this.orgs = orgs;
@@ -29,7 +29,7 @@ public class Player {
     public Player(String userName) {
         this.userName = userName;
         this.orgs = new ArrayList<>();
-        this.flag = Flag.нейтрал;
+        this.flag = '➖';
     }
 
     public int getId() {
@@ -56,11 +56,11 @@ public class Player {
         this.orgs = orgs;
     }
 
-    public Flag getFlag() {
+    public char getFlag() {
         return flag;
     }
 
-    public void setFlag(Flag flag) {
+    public void setFlag(char flag) {
         this.flag = flag;
     }
 

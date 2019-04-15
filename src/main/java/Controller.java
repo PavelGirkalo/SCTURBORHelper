@@ -73,7 +73,7 @@ public class Controller implements Initializable {
     @FXML
     TableColumn<Player, String> orgsColumn;
     @FXML
-    TableColumn<Player, Flag> flagColumn;
+    TableColumn<Player, Character> flagColumn;
 
     //таблица с организациями и ее столбцы
     @FXML
@@ -216,9 +216,14 @@ public class Controller implements Initializable {
         ParserHelper.getInfo(players);
         //заполнение флага свой/чужой с проверкой игроков в черном и белом списках
         players = ModelHelper.checkPlayersFlag(players);
-
         //вывод модели на экран
         finalTable.setItems(TableHelper.fillTable(players));
+        //flagColumn.setComparator(flagColumn.getComparator().reversed());
+        flagColumn.setComparator(flagColumn.getComparator());
+        finalTable.getSortOrder().add(flagColumn);
+
+
+
         orgs = ModelHelper.fillOrgModel(players);
         orgsTable.setItems(TableHelper.fillOrgTable(orgs));
         orgQuantity.setComparator(orgQuantity.getComparator());
@@ -229,26 +234,65 @@ public class Controller implements Initializable {
 
     public void viewInfoAboutPlayer() {
         AnchorPane root = new AnchorPane();
-        TextArea area = new TextArea();
-        area.setPrefRowCount(11);
+
+        //размещение картинки с логотипом игрока
+        ImageView player_logo = new ImageView();
+        player_logo.setX(5);
+        player_logo.setY(5);
+
+        //размещение картинки с логотипом организации
+        ImageView org_logo = new ImageView();
+        org_logo.setX(5);
+        org_logo.setY(175);
+
+        //размещение поля с информацией об игроке
+        TextArea player_info = new TextArea();
+        player_info.setPrefRowCount(6);
+        player_info.setLayoutX(175);
+        player_info.setLayoutY(5);
+        player_info.setPrefWidth(300);
+        player_info.setPrefHeight(165);
+
+        //размещение поля с информацией об игроке
+        TextArea org_info = new TextArea();
+        org_info.setPrefRowCount(5);
+        org_info.setLayoutX(175);
+        org_info.setLayoutY(175);
+        org_info.setPrefWidth(300);
+        org_info.setPrefHeight(165);
+
+
         ArrayList<String> result;
         try {
             result = ParserHelper.getPlayerInfo(finalTable.getSelectionModel().getSelectedItem());
         } catch (NullPointerException e) {
             result = new ArrayList<>();
-            result.add("/app/tur-logo.jpg");
+            result.add("https://robertsspaceindustries.com/rsi/static/images/organization/public-orgs-thumb-redacted-bg.png");
             result.add("Таблица пуста");
-            result.add("/app/tur-logo.jpg");
+            result.add("https://robertsspaceindustries.com/rsi/static/images/organization/public-orgs-thumb-redacted-bg.png");
             result.add("");
         }
-        area.setText(result.get(1) + result.get(3));
-        area.setEditable(false);
-        root.getChildren().add(area);
+
+        //заполнение изображений и полей с информацией
+        player_logo.setImage(new Image(result.get(0),165,165,false,false));
+        player_info.setText(result.get(1));
+        player_info.setEditable(false);
+        org_logo.setImage(new Image(result.get(2),165,165,false,false));
+        org_info.setText(result.get(3));
+        org_info.setEditable(false);
+
+
+        //добавление элементов на сцену
+        root.getChildren().add(player_info);
+        root.getChildren().add(org_logo);
+        root.getChildren().add(org_info);
+        root.getChildren().add(player_logo);
 
         Stage stage = new Stage();
-        stage.setTitle(finalTable.getSelectionModel().getSelectedItem().getUserName());
-        stage.getIcons().add(new Image(result.get(0)));
-        stage.setWidth(400);
+        stage.setTitle("Информация об игроке");
+        stage.getIcons().add(new Image(Main.class.getResourceAsStream("/app/tur-logo.jpg")));
+        stage.setWidth(500);
+        stage.setHeight(385);
         stage.initModality(Modality.WINDOW_MODAL);
         stage.initOwner(finalTable.getScene().getWindow());
 
@@ -259,26 +303,43 @@ public class Controller implements Initializable {
 
     public void viewInfoAboutOrg() {
         AnchorPane root = new AnchorPane();
-        TextArea area = new TextArea();
-        area.setPrefRowCount(5);
+        ImageView org_logo = new ImageView();
+        org_logo.setX(5);
+        org_logo.setY(5);
+
+        //размещение поля с информацией об игроке
+        TextArea org_info = new TextArea();
+        org_info.setPrefRowCount(5);
+        org_info.setLayoutX(175);
+        org_info.setLayoutY(5);
+        org_info.setPrefWidth(300);
+        org_info.setPrefHeight(165);
+
+
         ArrayList<String> result;
         try {
             result = ParserHelper.getOrgInfo(orgsTable.getSelectionModel().getSelectedItem());
         } catch (NullPointerException e) {
             result = new ArrayList<>();
-            result.add("/app/tur-logo.jpg");
+            result.add("https://robertsspaceindustries.com/rsi/static/images/organization/public-orgs-thumb-redacted-bg.png");
             result.add("Нет информации об организации");
 
         }
 
-        area.setText(result.get(1));
-        area.setEditable(false);
-        root.getChildren().add(area);
+        org_logo.setImage(new Image(result.get(0),165,165,false,false));
+        org_info.setText(result.get(1));
+        org_info.setEditable(false);
+
+
+        root.getChildren().add(org_logo);
+        root.getChildren().add(org_info);
+
 
         Stage stage = new Stage();
-        stage.setTitle(orgsTable.getSelectionModel().getSelectedItem().getName());
-        stage.getIcons().add(new Image(result.get(0)));
-        stage.setWidth(300);
+        stage.setTitle("Информация об организации");
+        stage.getIcons().add(new Image(Main.class.getResourceAsStream("/app/tur-logo.jpg")));
+        stage.setWidth(500);
+        stage.setHeight(220);
         stage.initModality(Modality.WINDOW_MODAL);
         stage.initOwner(orgsTable.getScene().getWindow());
 
