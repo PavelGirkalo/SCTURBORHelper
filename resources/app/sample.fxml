@@ -15,7 +15,7 @@
 
 <TabPane maxHeight="730.0" maxWidth="1220.0" minHeight="730.0" minWidth="1220.0" prefHeight="730.0" prefWidth="1220.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
   <tabs>
-    <Tab text="Данные по игрокам на сервере">
+    <Tab fx:id="Tab1" text="Данные по игрокам на сервере">
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
@@ -79,10 +79,11 @@
                            </children></AnchorPane>
                     </items>
                   </SplitPane>
+                  <Label fx:id="keyField" layoutX="1186.0" layoutY="9.0" maxWidth="20.0" minWidth="20.0" onContextMenuRequested="#activateAdmin" onMouseClicked="#deactivateAdmin" prefWidth="20.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
                </children></AnchorPane>
       </content>
     </Tab>
-    <Tab disable="true" text="Работа с ресурсами">
+    <Tab fx:id="Tab2" disable="true" text="Работа с ресурсами">
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
@@ -90,7 +91,15 @@
                     <items>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                            <children>
-                              <Button fx:id="allOrgs" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Показать все корпы" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0" />
+                              <Button fx:id="allFriends" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#showFriends" text="Список друзей" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0" />
+                              <Button fx:id="allEnemies" layoutX="109.0" layoutY="5.0" mnemonicParsing="false" onAction="#showEnemies" text="Список врагов" AnchorPane.leftAnchor="110.0" AnchorPane.topAnchor="5.0" />
+                              <TableView fx:id="playersTable" layoutX="3.0" layoutY="30.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="35.0">
+                                <columns>
+                                  <TableColumn fx:id="nameColumn" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" text="Имя игрока" />
+                                  <TableColumn fx:id="flColumn" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" text="Флаг" />
+                                </columns>
+                              </TableView>
+                              <Label fx:id="quaLabel" layoutX="216.0" layoutY="9.0" prefHeight="17.0" prefWidth="91.0" text="Количество:" AnchorPane.leftAnchor="215.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="9.0" />
                            </children>
                         </AnchorPane>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
@@ -99,7 +108,7 @@
                </children></AnchorPane>
       </content>
     </Tab>
-      <Tab disable="true" text="Торговые дела">
+      <Tab fx:id="Tab3" disable="true" text="Торговые дела">
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>

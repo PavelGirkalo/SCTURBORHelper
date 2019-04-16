@@ -1,4 +1,7 @@
 import helpers.*;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
@@ -9,10 +12,12 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import model.*;
+import model.Org;
+import model.OrgList;
+import model.Player;
+import model.PlayerList;
 
 import java.io.File;
-import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -22,6 +27,16 @@ public class Controller implements Initializable {
     int count = 0;
     PlayerList players;
     OrgList orgs;
+
+
+    @FXML
+    Tab Tab1;
+    @FXML
+    Tab Tab2;
+    @FXML
+    Tab Tab3;
+
+
 
     //объекты верхней строки первой вкладки
     @FXML
@@ -83,10 +98,27 @@ public class Controller implements Initializable {
     @FXML
     TableColumn<Org, Integer> orgQuantity;
 
+    @FXML
+    Label keyField;
+
 
     //объекты второй страницы
+
     @FXML
-    Button allOrgs;
+    Button allFriends;
+    @FXML
+    Button allEnemies;
+    @FXML
+    Label quaLabel;
+    @FXML
+    TableView<Player> playersTable;
+    @FXML
+    TableColumn<Player, String> nameColumn;
+    @FXML
+    TableColumn<Player, String> flColumn;
+
+
+
 
     //объекты третьей страницы
     @FXML
@@ -107,18 +139,18 @@ public class Controller implements Initializable {
         //orgsColumn.setCellFactory(new ToolTipCellFactory<>());
         flagColumn.setCellValueFactory(new PropertyValueFactory<>("flag"));
 
-
         orgName.setCellValueFactory(new PropertyValueFactory<>("name"));
         //orgName.setCellFactory(new ToolTipOrgInfoFactory<>());
         orgQuantity.setCellValueFactory(new PropertyValueFactory<>("quantity"));
 
+
+        //настройка таблицы на второй странице
+        nameColumn.setCellValueFactory(new PropertyValueFactory<>("userName"));
+
+
+
+
         //заполнение списка торговых локаций на странице торговли
-        String loc_path = "./resources/Locations.csv";
-        ArrayList<String> locations = FileHelper.readCSV(loc_path);
-        for (int i = 0; i < locations.size(); i++) {
-            buyBox.getItems().add(locations.get(i));
-            sellBox.getItems().add(locations.get(i));
-        }
 
         //составление списка из окон для отображения изображений
         imageList.add(imageView1);
@@ -349,7 +381,38 @@ public class Controller implements Initializable {
     }
 
 
+    public void showFriends(ActionEvent actionEvent) {
+        PlayerList whiteList = FileHelper.readPlayers("./resources/Friends.csv");
+        ObservableList<Player> list = FXCollections.observableArrayList();
+        for (Player player : whiteList.getPlayerList())
+            list.add(player);
+        playersTable.setItems(list);
+        quaLabel.setText("Количество: " + list.size());
+    }
+
+    public void showEnemies(ActionEvent actionEvent) {
+        PlayerList whiteList = FileHelper.readPlayers("./resources/Enemies.csv");
+        ObservableList<Player> list = FXCollections.observableArrayList();
+        for (Player player : whiteList.getPlayerList())
+            list.add(player);
+        playersTable.setItems(list);
+        quaLabel.setText("Количество: " + list.size());
+    }
 
 
+    public void activateAdmin() {
+        Tab2.setDisable(false);
+        Tab3.setDisable(false);
+        /*String loc_path = "./resources/Locations.csv";
+        ArrayList<String> locations = FileHelper.readCSV(loc_path);
+        for (int i = 0; i < locations.size(); i++) {
+            buyBox.getItems().add(locations.get(i));
+            sellBox.getItems().add(locations.get(i));
+        }*/
+    }
+    public void deactivateAdmin() {
+        Tab2.setDisable(true);
+        Tab3.setDisable(true);
+    }
 }
 
