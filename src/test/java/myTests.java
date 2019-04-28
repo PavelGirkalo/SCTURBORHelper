@@ -1,5 +1,11 @@
 import helpers.FileHelper;
+import helpers.RecognHelper;
+import javafx.embed.swing.SwingFXUtils;
+import javafx.scene.image.Image;
 import model.Org;
+import net.sourceforge.tess4j.ITesseract;
+import net.sourceforge.tess4j.Tesseract;
+import net.sourceforge.tess4j.TesseractException;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -8,7 +14,9 @@ import org.testng.annotations.Test;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
-import java.awt.image.BufferedImage;
+import java.awt.color.ColorSpace;
+import java.awt.image.*;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -89,6 +97,62 @@ public class myTests {
         } catch (IOException e) {
             System.out.println("No info");
         }
+    }
+
+    @Test
+    public void recognTest() throws IOException {
+        File orig_file = new File("C:\\12345\\ScreenShot0017.jpg");
+        Image image = FileHelper.extractImage(orig_file);
+
+        ITesseract instance = new Tesseract();
+        instance.setDatapath("resources/tessdata");
+
+        //считывание из файлов изображений
+        BufferedImage buff_image = SwingFXUtils.fromFXImage(image,null);
+
+
+        //обработка изображений
+        File processed_files = new File("");
+
+        BufferedImage crop_image = buff_image;
+
+            //негатив
+            short[] negative = new short[256 * 1];
+            for (int i = 0; i < 256; i++) negative[i] = (short) (255 - i);
+            ShortLookupTable table = new ShortLookupTable(0, negative);
+            LookupOp op2 = new LookupOp(table, null);
+            crop_image = op2.filter(crop_image, crop_image);
+
+            //ч-б преобразование
+            ColorConvertOp grayOp = new ColorConvertOp(ColorSpace.getInstance(ColorSpace.CS_GRAY), null);
+            crop_image = grayOp.filter(crop_image, crop_image);
+
+            //осветление
+            float a = 1.3f;
+            RescaleOp op1 = new RescaleOp(a, 0, null);
+            crop_image = op1.filter(crop_image, crop_image);
+
+
+            File file = new File("resources/temp.jpg");
+            ImageIO.write(crop_image, "jpg", file);
+
+        //распознавание текста
+        String result = "";
+
+            try {
+                result = instance.doOCR(file);
+            } catch (TesseractException e1) {
+                //e1.printStackTrace();
+            }
+            file.delete();
+
+        System.out.println("result: " + result);
+
+
+
+
+
+
     }
 
 }

@@ -347,6 +347,13 @@ public class Controller implements Initializable {
         org_info.setPrefWidth(300);
         org_info.setPrefHeight(165);
 
+        TextArea players_info = new TextArea();
+        players_info.setPrefRowCount(5);
+        players_info.setLayoutX(5);
+        players_info.setLayoutY(180);
+        players_info.setPrefWidth(300);
+        players_info.setPrefHeight(165);
+
 
         ArrayList<String> result;
         try {
@@ -357,21 +364,34 @@ public class Controller implements Initializable {
             result.add("Нет информации об организации");
 
         }
-
         org_logo.setImage(new Image(result.get(0),165,165,false,false));
         org_info.setText(result.get(1));
         org_info.setEditable(false);
 
+        String pl = "";
+        for(Player player:players.getPlayerList()){
+            for(Org org:player.getOrgs()){
+                if(org.getName().equals(orgsTable.getSelectionModel().getSelectedItem().getName())){
+                    pl+=player.getUserName();
+                    pl+="\n";
+                }
+
+            }
+
+        }
+        players_info.setText(pl);
+
 
         root.getChildren().add(org_logo);
         root.getChildren().add(org_info);
+        root.getChildren().add(players_info);
 
 
         Stage stage = new Stage();
         stage.setTitle("Информация об организации");
         stage.getIcons().add(new Image(Main.class.getResourceAsStream("/app/tur-logo.jpg")));
         stage.setWidth(500);
-        stage.setHeight(220);
+        stage.setHeight(420);
         stage.initModality(Modality.WINDOW_MODAL);
         stage.initOwner(orgsTable.getScene().getWindow());
 

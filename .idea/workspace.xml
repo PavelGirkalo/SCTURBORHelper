@@ -16,20 +16,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Controller.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -57,8 +44,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/net/sourceforge/tess4j/TessAPI1.java" />
-        <option value="$PROJECT_DIR$/src/main/java/net/sourceforge/tess4j/Word.java" />
         <option value="$PROJECT_DIR$/src/main/java/net/sourceforge/tess4j/Tesseract1.java" />
         <option value="$PROJECT_DIR$/src/main/java/net/sourceforge/tess4j/Tesseract.java" />
         <option value="$PROJECT_DIR$/src/main/java/net/sourceforge/tess4j/util/ImageHelper.java" />
@@ -96,7 +81,6 @@
         <option value="$PROJECT_DIR$/src/main/java/helpers/RecognHelper.java" />
         <option value="$PROJECT_DIR$/src/main/java/helpers/FileHelper.java" />
         <option value="$PROJECT_DIR$/src/main/java/ToolTipOrgInfoFactory.java" />
-        <option value="$PROJECT_DIR$/src/test/java/myTests.java" />
         <option value="$PROJECT_DIR$/src/main/java/InfoController.java" />
         <option value="$PROJECT_DIR$/src/main/java/ToolTipPlayerInfoFactory.java" />
         <option value="$PROJECT_DIR$/src/main/java/PlayerInfo.java" />
@@ -105,9 +89,12 @@
         <option value="$PROJECT_DIR$/src/main/java/helpers/ModelHelper.java" />
         <option value="$PROJECT_DIR$/src/main/java/helpers/ParserHelper.java" />
         <option value="$PROJECT_DIR$/resources/Friends.csv" />
-        <option value="$PROJECT_DIR$/resources/app/sample.fxml" />
         <option value="$PROJECT_DIR$/resources/Locations.csv" />
+        <option value="$PROJECT_DIR$/resources/Enemies.csv" />
+        <option value="$PROJECT_DIR$/out/artifacts/SCTURBORHelper/resources/Enemies.csv" />
+        <option value="$PROJECT_DIR$/src/test/java/myTests.java" />
         <option value="$PROJECT_DIR$/src/main/java/Controller.java" />
+        <option value="$PROJECT_DIR$/resources/app/sample.fxml" />
       </list>
     </option>
   </component>
@@ -165,19 +152,10 @@
               <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
-            <path>
-              <item name="SCTURBORHelper" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="SCTURBORHelper" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="main" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="helpers" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -211,6 +189,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -218,7 +197,7 @@
     <property name="GenerateAntBuildDialog.enableUiFormCompile" value="true" />
     <property name="GenerateAntBuildDialog.forceTargetJdk" value="true" />
     <property name="GenerateAntBuildDialog.outputFileNameProperty" value="scturborhelper" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555400707448" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556387422006" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources" />
     <property name="project.structure.last.edited" value="Project" />
@@ -300,9 +279,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="myTests.recognTest" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="SCTURBORHelper" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="myTests" />
+      <option name="METHOD_NAME" value="recognTest" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="TestNG.myTests.recognTest" />
         <item itemvalue="TestNG.myTests.playerTest" />
         <item itemvalue="TestNG.myTests.orgsTest" />
         <item itemvalue="TestNG.myTests.myTests" />
@@ -323,55 +315,54 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="myTests_myTests - 2019.04.05 at 10h 43m 45s.xml">
-      <configuration name="myTests.myTests" configurationId="TestNG" />
+    <history-entry file="myTests_recognTest - 2019.04.27 at 21h 27m 11s.xml">
+      <configuration name="myTests.recognTest" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="myTests_myTests - 2019.04.05 at 11h 04m 02s.xml">
-      <configuration name="myTests.myTests" configurationId="TestNG" />
+    <history-entry file="myTests_recognTest - 2019.04.27 at 21h 30m 21s.xml">
+      <configuration name="myTests.recognTest" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="myTests_orgsTest - 2019.04.14 at 19h 49m 46s.xml">
-      <configuration name="myTests.orgsTest" configurationId="TestNG" />
+    <history-entry file="myTests_recognTest - 2019.04.27 at 21h 30m 23s.xml">
+      <configuration name="myTests.recognTest" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="myTests_orgsTest - 2019.04.14 at 19h 50m 38s.xml">
-      <configuration name="myTests.orgsTest" configurationId="TestNG" />
+    <history-entry file="myTests_recognTest - 2019.04.27 at 21h 34m 01s.xml">
+      <configuration name="myTests.recognTest" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="myTests_orgsTest - 2019.04.14 at 19h 51m 17s.xml">
-      <configuration name="myTests.orgsTest" configurationId="TestNG" />
+    <history-entry file="myTests_recognTest - 2019.04.27 at 21h 34m 04s.xml">
+      <configuration name="myTests.recognTest" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="myTests_orgsTest - 2019.04.14 at 19h 55m 13s.xml">
-      <configuration name="myTests.orgsTest" configurationId="TestNG" />
+    <history-entry file="myTests_recognTest - 2019.04.27 at 21h 34m 41s.xml">
+      <configuration name="myTests.recognTest" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="myTests_orgsTest - 2019.04.14 at 20h 05m 39s.xml">
-      <configuration name="myTests.orgsTest" configurationId="TestNG" />
+    <history-entry file="myTests_recognTest - 2019.04.27 at 21h 35m 36s.xml">
+      <configuration name="myTests.recognTest" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="myTests_playerTest - 2019.04.14 at 20h 15m 58s.xml">
-      <configuration name="myTests.playerTest" configurationId="TestNG" />
+    <history-entry file="myTests_recognTest - 2019.04.27 at 21h 35m 48s.xml">
+      <configuration name="myTests.recognTest" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="myTests_playerTest - 2019.04.14 at 20h 18m 18s.xml">
-      <configuration name="myTests.playerTest" configurationId="TestNG" />
+    <history-entry file="myTests_recognTest - 2019.04.27 at 21h 37m 00s.xml">
+      <configuration name="myTests.recognTest" configurationId="TestNG" />
     </history-entry>
-    <history-entry file="myTests_playerTest - 2019.04.14 at 20h 22m 37s.xml">
-      <configuration name="myTests.playerTest" configurationId="TestNG" />
+    <history-entry file="myTests_recognTest - 2019.04.27 at 21h 37m 41s.xml">
+      <configuration name="myTests.recognTest" configurationId="TestNG" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <frame x="54" y="-8" width="1874" height="1096" extended-state="6" />
     <layout>
       <window_info id="Designer" order="0" />
       <window_info id="UI Designer" order="1" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Image Layers" order="4" />
-      <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.15671642" />
+      <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.1648291" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="0" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" weight="0.32936078" />
-      <window_info anchor="bottom" id="Messages" order="2" weight="0.3261105" />
+      <window_info anchor="bottom" id="Messages" order="2" weight="0.32606438" />
       <window_info anchor="bottom" id="Version Control" order="3" />
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Find" order="5" weight="0.32936078" />
-      <window_info anchor="bottom" id="Run" order="6" weight="0.32394367" />
+      <window_info anchor="bottom" id="Run" order="6" weight="0.3229491" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.39667705" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
@@ -408,27 +399,45 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/myTests.java</url>
-          <line>49</line>
+          <line>57</line>
           <properties />
           <option name="timeStamp" value="92" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/myTests.java</url>
-          <line>70</line>
+          <line>78</line>
           <properties />
           <option name="timeStamp" value="93" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/myTests.java</url>
-          <line>79</line>
+          <line>87</line>
           <properties />
           <option name="timeStamp" value="94" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/Controller.java</url>
-          <line>384</line>
+          <line>404</line>
           <properties />
           <option name="timeStamp" value="95" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/myTests.java</url>
+          <line>146</line>
+          <properties />
+          <option name="timeStamp" value="100" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/myTests.java</url>
+          <line>135</line>
+          <properties />
+          <option name="timeStamp" value="101" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Controller.java</url>
+          <line>371</line>
+          <properties />
+          <option name="timeStamp" value="102" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -475,31 +484,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/javafx-src.zip!/javafx/scene/control/TableCell.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="311" column="19" selection-start-line="311" selection-start-column="11" selection-end-line="311" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/javafx-src.zip!/javafx/scene/control/TableColumn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="427" column="29" selection-start-line="427" selection-start-column="29" selection-end-line="427" selection-end-column="29" />
-          <folding>
-            <element signature="e#18479#18480#0" expanded="true" />
-            <element signature="e#18517#18518#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/javafx-src.zip!/javafx/util/Callback.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="51" column="13" selection-start-line="51" selection-start-column="13" selection-end-line="51" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/javafx-src.zip!/javafx/scene/control/Cell.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="199">
@@ -671,23 +655,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/myTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="533">
-          <caret line="90" column="9" lean-forward="true" selection-start-line="65" selection-start-column="8" selection-end-line="90" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/helpers/RecognHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="36" column="25" selection-start-line="36" selection-start-column="25" selection-end-line="36" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/PlayerInfo.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/javafx-src.zip!/javafx/fxml/FXMLLoader.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -749,9 +716,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/Enemies.csv">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/javafx-src.zip!/javafx/scene/control/TableView.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="299">
@@ -777,23 +741,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/helpers/TableHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="16" column="20" lean-forward="true" selection-start-line="14" selection-start-column="8" selection-end-line="16" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/helpers/FileHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="30" selection-start-line="30" selection-end-line="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/helpers/ModelHelper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-376">
@@ -801,21 +748,74 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/app/sample.fxml">
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="81" column="137" selection-start-line="81" selection-start-column="137" selection-end-line="81" selection-end-column="137" />
+    <entry file="file://$PROJECT_DIR$/resources/Enemies.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="401">
+          <caret line="53" selection-start-line="53" selection-end-line="53" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/artifacts/SCTURBORHelper/resources/Enemies.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="826">
+          <caret line="53" column="7" selection-start-line="53" selection-start-column="7" selection-end-line="53" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/helpers/FileHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="77" column="23" selection-start-line="77" selection-start-column="23" selection-end-line="77" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/helpers/RecognHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="765">
+          <caret line="83" column="31" lean-forward="true" selection-start-line="52" selection-start-column="7" selection-end-line="83" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/testng/testng/6.14.3/testng-6.14.3.jar!/org/testng/internal/MethodInvocationHelper.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1326">
+          <caret line="108" selection-start-line="108" selection-end-line="108" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/temp.jpg" />
+    <entry file="file://$PROJECT_DIR$/src/test/java/myTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="103" column="67" lean-forward="true" selection-start-line="103" selection-start-column="67" selection-end-line="103" selection-end-column="67" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/helpers/TableHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="17" column="5" lean-forward="true" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="329">
+          <caret line="375" column="29" selection-start-line="375" selection-start-column="29" selection-end-line="375" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/app/sample.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="69" column="154" selection-start-line="69" selection-start-column="154" selection-end-line="69" selection-end-column="154" />
         </state>
       </provider>
     </entry>

@@ -70,8 +70,8 @@
                               <TableView fx:id="finalTable" editable="true" focusTraversable="false" layoutX="14.0" layoutY="14.0" onMouseClicked="#viewInfoAboutPlayer" prefHeight="640.0" prefWidth="450.0" AnchorPane.rightAnchor="210.0" AnchorPane.topAnchor="5.0">
                                 <columns>
                                   <TableColumn fx:id="numberColumn" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" resizable="false" text="#" />
-                                  <TableColumn fx:id="nicknameColumn" maxWidth="120.0" minWidth="120.0" prefWidth="120.0" sortable="false" text="Имя игрока" />
-                                  <TableColumn fx:id="orgsColumn" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" sortable="false" text="Организации игрока" />
+                                  <TableColumn fx:id="nicknameColumn" maxWidth="120.0" minWidth="120.0" prefWidth="120.0" text="Имя игрока" />
+                                  <TableColumn fx:id="orgsColumn" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" text="Организации игрока" />
                                   <TableColumn fx:id="flagColumn" maxWidth="90.0" minWidth="90.0" prefWidth="90.0" resizable="false" text="Свой/чужой" />
                                 </columns>
                               </TableView>
