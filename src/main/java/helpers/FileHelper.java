@@ -145,4 +145,46 @@ public class FileHelper {
         }
     }
 
+    public static Image extractQuest(File file) {
+        BufferedImage image = new BufferedImage(1100, 640, BufferedImage.TYPE_INT_RGB);
+        try {
+            java.awt.Image img = ImageIO.read(file);
+            BufferedImage orig_image = new BufferedImage(img.getWidth(null), img.getHeight(null), BufferedImage.TYPE_INT_RGB);
+            orig_image.getGraphics().drawImage(img, 0, 0, null);
+            //обрезка в зависимости от разрешения монитора/скриншота
+            int im_height = orig_image.getHeight();
+            int im_width = orig_image.getWidth();
+            if (im_height == 1080) {
+                if (im_width == 1920) { // соотношение 16:9
+                    image = orig_image.getSubimage(orig_image.getWidth() - 1045, 245, 1005, orig_image.getHeight() - 460); // вырезание квеста
+                    image = Scalr.resize(image, Scalr.Method.BALANCED, 700, 600);
+                } else if (im_width == 2560) { // соотношение 21:9
+                    image = orig_image.getSubimage(orig_image.getWidth() - 380 - 320, 215, 290, orig_image.getHeight() - 430);
+                } else if (im_width == 3840) { // соотношение 32:9
+                    image = orig_image.getSubimage(orig_image.getWidth() - 380 - 960, 215, 290, orig_image.getHeight() - 430);
+                }
+            } else if (im_height == 1440) {
+                if (im_width == 2560) { // соотношение 16:9
+                    BufferedImage temp_image;// = new BufferedImage(1920, 1080, BufferedImage.TYPE_INT_RGB);
+                    temp_image = Scalr.resize(orig_image, Scalr.Method.BALANCED, 1920, 1080);
+                    image = temp_image.getSubimage(temp_image.getWidth() - 380, 215, 290, temp_image.getHeight() - 430);
+                } else if (im_width == 3440) { // соотношение 21:9
+                    BufferedImage temp_image;// = new BufferedImage(2560, 1080, BufferedImage.TYPE_INT_RGB);
+                    temp_image = Scalr.resize(orig_image, Scalr.Method.BALANCED, 2580, 1080);
+                    image = temp_image.getSubimage(temp_image.getWidth() - 380 - 330, 215, 290, temp_image.getHeight() - 430);
+                }
+            } else if (im_height == 2160) {
+                if (im_width == 3840) { // соотношение 16:9
+                    BufferedImage temp_image;// = new BufferedImage(1920, 1080, BufferedImage.TYPE_INT_RGB);
+                    temp_image = Scalr.resize(orig_image, Scalr.Method.BALANCED, 1920, 1080);
+                    image = temp_image.getSubimage(temp_image.getWidth() - 380, 215, 290, temp_image.getHeight() - 430);
+                }
+            }
+            return SwingFXUtils.toFXImage(image, null);
+        } catch (IOException e) {
+            System.out.println("Image not found");
+            return new Image("");
+        }
+    }
+
 }

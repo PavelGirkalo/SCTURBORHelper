@@ -21,6 +21,13 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 
+import com.google.cloud.translate.Translate;
+import com.google.cloud.translate.Translate.TranslateOption;
+import com.google.cloud.translate.TranslateOptions;
+import com.google.cloud.translate.Translation;
+
+
+
 public class myTests {
     @Test
     public void siteTest(){
@@ -101,8 +108,8 @@ public class myTests {
 
     @Test
     public void recognTest() throws IOException {
-        File orig_file = new File("C:\\12345\\ScreenShot0017.jpg");
-        Image image = FileHelper.extractImage(orig_file);
+        File orig_file = new File("C:\\12345\\_Miss\\ScreenShot0018.jpg");
+        Image image = FileHelper.extractQuest(orig_file);
 
         ITesseract instance = new Tesseract();
         instance.setDatapath("resources/tessdata");
@@ -110,9 +117,6 @@ public class myTests {
         //считывание из файлов изображений
         BufferedImage buff_image = SwingFXUtils.fromFXImage(image,null);
 
-
-        //обработка изображений
-        File processed_files = new File("");
 
         BufferedImage crop_image = buff_image;
 
@@ -146,10 +150,25 @@ public class myTests {
             }
             file.delete();
 
-        System.out.println("result: " + result);
+        System.out.println("Result: \n" + result);
+/*
+        // Instantiates a client
+        Translate translate = TranslateOptions.getDefaultInstance().getService();
+
+        // The text to translate
+        String text = result;
+
+        // Translates some text into Russian
+        Translation translation =
+                translate.translate(
+                        text,
+                        TranslateOption.sourceLanguage("en"),
+                        TranslateOption.targetLanguage("ru"));
 
 
-
+        System.out.printf("Text: %s%n", text);
+        System.out.printf("Translation: %s%n", translation.getTranslatedText());
+*/
 
 
 

@@ -1,6 +1,7 @@
 package helpers;
 
 import javafx.embed.swing.SwingFXUtils;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import net.sourceforge.tess4j.ITesseract;
 import net.sourceforge.tess4j.Tesseract;
@@ -83,6 +84,51 @@ public class RecognHelper {
         }
         return processed_files;
 
+    }
+
+    public void recognText(ImageView image) throws IOException {
+        /*File orig_file = new File("C:\\12345\\_Miss\\ScreenShot0018.jpg");
+        Image image = FileHelper.extractQuest(orig_file);*/
+
+        ITesseract instance = new Tesseract();
+        instance.setDatapath("resources/tessdata");
+
+        //считывание из файлов изображений
+        BufferedImage buff_image = SwingFXUtils.fromFXImage(image.getImage(), null);
+
+        BufferedImage crop_image = buff_image;
+
+        //негатив
+        short[] negative = new short[256 * 1];
+        for (int i = 0; i < 256; i++) negative[i] = (short) (255 - i);
+        ShortLookupTable table = new ShortLookupTable(0, negative);
+        LookupOp op2 = new LookupOp(table, null);
+        crop_image = op2.filter(crop_image, crop_image);
+
+        //ч-б преобразование
+        ColorConvertOp grayOp = new ColorConvertOp(ColorSpace.getInstance(ColorSpace.CS_GRAY), null);
+        crop_image = grayOp.filter(crop_image, crop_image);
+
+        //осветление
+        float a = 1.3f;
+        RescaleOp op1 = new RescaleOp(a, 0, null);
+        crop_image = op1.filter(crop_image, crop_image);
+
+
+        File file = new File("resources/temp.jpg");
+        ImageIO.write(crop_image, "jpg", file);
+
+        //распознавание текста
+        String result = "";
+
+        try {
+            result = instance.doOCR(file);
+        } catch (TesseractException e1) {
+            //e1.printStackTrace();
+        }
+        file.delete();
+
+        System.out.println("Result: \n" + result);
     }
 
 

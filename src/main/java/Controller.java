@@ -1,6 +1,7 @@
 import helpers.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -16,8 +17,15 @@ import model.Org;
 import model.OrgList;
 import model.Player;
 import model.PlayerList;
+import net.sourceforge.tess4j.ITesseract;
+import net.sourceforge.tess4j.Tesseract;
+import net.sourceforge.tess4j.TesseractException;
 
+import javax.imageio.ImageIO;
+import java.awt.color.ColorSpace;
+import java.awt.image.*;
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -32,10 +40,11 @@ public class Controller implements Initializable {
     @FXML
     Tab Tab1;
     @FXML
+    Tab Tab11;
+    @FXML
     Tab Tab2;
     @FXML
     Tab Tab3;
-
 
 
     //объекты верхней строки первой вкладки
@@ -97,12 +106,25 @@ public class Controller implements Initializable {
     TableColumn<Org, String> orgName;
     @FXML
     TableColumn<Org, Integer> orgQuantity;
-
     @FXML
     Label keyField;
 
 
+
     //объекты второй страницы
+    @FXML
+    Button openButton1;
+    @FXML
+    Button clearButton1;
+    @FXML
+    Button recognButton1;
+    @FXML
+    ImageView imageView11;
+    @FXML
+    TextArea tempList1;
+
+
+    //объекты третьей страницы
 
     @FXML
     Button allFriends;
@@ -120,7 +142,7 @@ public class Controller implements Initializable {
 
 
 
-    //объекты третьей страницы
+    //объекты четвертой страницы
     @FXML
     ComboBox<String> buyBox;
     @FXML
@@ -176,6 +198,18 @@ public class Controller implements Initializable {
             countImages.setText((Integer.toString(count)));
             if (count == 6)
                 openButton.setDisable(true);
+        } catch (NullPointerException e) {
+            System.out.println("File not found");
+        }
+    }
+
+    public void openQuestFile() {
+        try {
+            File orig_file = FileHelper.loadFile();
+            if (orig_file.getParent() != "") {
+                Image image = FileHelper.extractQuest(orig_file);
+                imageView11.setImage(image);
+            }
         } catch (NullPointerException e) {
             System.out.println("File not found");
         }
@@ -433,6 +467,57 @@ public class Controller implements Initializable {
     public void deactivateAdmin() {
         Tab2.setDisable(true);
         Tab3.setDisable(true);
+    }
+
+    public void clearImage(ActionEvent actionEvent) {
+        imageView11.setImage(null);
+    }
+
+    public void recognizeQuest(ActionEvent actionEvent) {
+        //File orig_file = new File("C:\\12345\\_Miss\\ScreenShot0018.jpg");
+        //Image image = FileHelper.extractQuest(orig_file);
+
+        ITesseract instance = new Tesseract();
+        instance.setDatapath("resources/tessdata");
+
+        //считывание из файлов изображений
+        BufferedImage buff_image = SwingFXUtils.fromFXImage(imageView11.getImage(),null);
+
+        BufferedImage crop_image = buff_image;
+
+        //негатив
+        short[] negative = new short[256 * 1];
+        for (int i = 0; i < 256; i++) negative[i] = (short) (255 - i);
+        ShortLookupTable table = new ShortLookupTable(0, negative);
+        LookupOp op2 = new LookupOp(table, null);
+        crop_image = op2.filter(crop_image, crop_image);
+
+        //ч-б преобразование
+        ColorConvertOp grayOp = new ColorConvertOp(ColorSpace.getInstance(ColorSpace.CS_GRAY), null);
+        crop_image = grayOp.filter(crop_image, crop_image);
+
+        //осветление
+        float a = 1.3f;
+        RescaleOp op1 = new RescaleOp(a, 0, null);
+        crop_image = op1.filter(crop_image, crop_image);
+
+
+        File file = new File("resources/temp.jpg");
+        try {
+            ImageIO.write(crop_image, "jpg", file);
+        } catch(IOException e){}
+        //распознавание текста
+        String result = "";
+
+        try {
+            result = instance.doOCR(file);
+        } catch (TesseractException e1) {
+            //e1.printStackTrace();
+        }
+        file.delete();
+
+        tempList1.setText(result);
+
     }
 }
 
