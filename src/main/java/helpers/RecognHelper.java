@@ -86,7 +86,7 @@ public class RecognHelper {
 
     }
 
-    public void recognText(ImageView image) throws IOException {
+    public static String recognText(ImageView image){
         /*File orig_file = new File("C:\\12345\\_Miss\\ScreenShot0018.jpg");
         Image image = FileHelper.extractQuest(orig_file);*/
 
@@ -116,7 +116,9 @@ public class RecognHelper {
 
 
         File file = new File("resources/temp.jpg");
-        ImageIO.write(crop_image, "jpg", file);
+        try {
+            ImageIO.write(crop_image, "jpg", file);
+        } catch(IOException e){e.printStackTrace();}
 
         //распознавание текста
         String result = "";
@@ -128,7 +130,7 @@ public class RecognHelper {
         }
         file.delete();
 
-        System.out.println("Result: \n" + result);
+        return result;
     }
 
 

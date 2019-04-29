@@ -1,5 +1,4 @@
 import helpers.FileHelper;
-import helpers.RecognHelper;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.scene.image.Image;
 import model.Org;
@@ -13,18 +12,11 @@ import org.jsoup.select.Elements;
 import org.testng.annotations.Test;
 
 import javax.imageio.ImageIO;
-import java.awt.*;
 import java.awt.color.ColorSpace;
 import java.awt.image.*;
 import java.io.File;
 import java.io.IOException;
-import java.net.URL;
 import java.util.ArrayList;
-
-import com.google.cloud.translate.Translate;
-import com.google.cloud.translate.Translate.TranslateOption;
-import com.google.cloud.translate.TranslateOptions;
-import com.google.cloud.translate.Translation;
 
 
 

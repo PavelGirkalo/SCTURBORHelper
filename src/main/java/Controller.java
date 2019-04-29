@@ -113,15 +113,15 @@ public class Controller implements Initializable {
 
     //объекты второй страницы
     @FXML
-    Button openButton1;
+    Button openQuestButton;
     @FXML
-    Button clearButton1;
+    Button clearQuestsButton;
     @FXML
-    Button recognButton1;
+    Button recognQuestButton;
     @FXML
-    ImageView imageView11;
+    ImageView imageViewQuest;
     @FXML
-    TextArea tempList1;
+    TextArea textQuest;
 
 
     //объекты третьей страницы
@@ -208,7 +208,7 @@ public class Controller implements Initializable {
             File orig_file = FileHelper.loadFile();
             if (orig_file.getParent() != "") {
                 Image image = FileHelper.extractQuest(orig_file);
-                imageView11.setImage(image);
+                imageViewQuest.setImage(image);
             }
         } catch (NullPointerException e) {
             System.out.println("File not found");
@@ -273,6 +273,8 @@ public class Controller implements Initializable {
         tempList.setText(tempList.getText() + "\n" + nicknameList);
 
     }
+
+
 
     public void viewInfo() {
 
@@ -470,54 +472,11 @@ public class Controller implements Initializable {
     }
 
     public void clearImage(ActionEvent actionEvent) {
-        imageView11.setImage(null);
+        imageViewQuest.setImage(null);
     }
 
     public void recognizeQuest(ActionEvent actionEvent) {
-        //File orig_file = new File("C:\\12345\\_Miss\\ScreenShot0018.jpg");
-        //Image image = FileHelper.extractQuest(orig_file);
-
-        ITesseract instance = new Tesseract();
-        instance.setDatapath("resources/tessdata");
-
-        //считывание из файлов изображений
-        BufferedImage buff_image = SwingFXUtils.fromFXImage(imageView11.getImage(),null);
-
-        BufferedImage crop_image = buff_image;
-
-        //негатив
-        short[] negative = new short[256 * 1];
-        for (int i = 0; i < 256; i++) negative[i] = (short) (255 - i);
-        ShortLookupTable table = new ShortLookupTable(0, negative);
-        LookupOp op2 = new LookupOp(table, null);
-        crop_image = op2.filter(crop_image, crop_image);
-
-        //ч-б преобразование
-        ColorConvertOp grayOp = new ColorConvertOp(ColorSpace.getInstance(ColorSpace.CS_GRAY), null);
-        crop_image = grayOp.filter(crop_image, crop_image);
-
-        //осветление
-        float a = 1.3f;
-        RescaleOp op1 = new RescaleOp(a, 0, null);
-        crop_image = op1.filter(crop_image, crop_image);
-
-
-        File file = new File("resources/temp.jpg");
-        try {
-            ImageIO.write(crop_image, "jpg", file);
-        } catch(IOException e){}
-        //распознавание текста
-        String result = "";
-
-        try {
-            result = instance.doOCR(file);
-        } catch (TesseractException e1) {
-            //e1.printStackTrace();
-        }
-        file.delete();
-
-        tempList1.setText(result);
-
+        textQuest.setText(RecognHelper.recognText(imageViewQuest));
     }
 }
 
