@@ -7,9 +7,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -22,11 +26,15 @@ import net.sourceforge.tess4j.Tesseract;
 import net.sourceforge.tess4j.TesseractException;
 
 import javax.imageio.ImageIO;
+import java.awt.*;
 import java.awt.color.ColorSpace;
 import java.awt.image.*;
 import java.io.File;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
@@ -348,7 +356,28 @@ public class Controller implements Initializable {
         org_logo.setImage(new Image(result.get(2),165,165,false,false));
         org_info.setText(result.get(3));
         org_info.setEditable(false);
-
+        //просмотр профиля игрока на сайте
+        player_info.setOnMouseClicked((MouseEvent event) -> {
+            try {
+                Desktop d=Desktop.getDesktop();
+                d.browse(new URI("https://robertsspaceindustries.com/citizens/" + finalTable.getSelectionModel().getSelectedItem().getUserName()));
+            } catch (IOException ioe) {
+                ioe.printStackTrace();
+            } catch (URISyntaxException use) {
+                use.printStackTrace();
+            }
+        });
+        //просмотр профиля организации на сайте
+        org_info.setOnMouseClicked((MouseEvent event) -> {
+            try {
+                Desktop d=Desktop.getDesktop();
+                d.browse(new URI("https://robertsspaceindustries.com/orgs/" + finalTable.getSelectionModel().getSelectedItem().getOrgs().get(0)));
+            } catch (IOException ioe) {
+                ioe.printStackTrace();
+            } catch (URISyntaxException use) {
+                use.printStackTrace();
+            }
+        });
 
         //добавление элементов на сцену
         root.getChildren().add(player_info);
@@ -403,6 +432,16 @@ public class Controller implements Initializable {
         org_logo.setImage(new Image(result.get(0),165,165,false,false));
         org_info.setText(result.get(1));
         org_info.setEditable(false);
+        org_info.setOnMouseClicked((MouseEvent event) -> {
+            try {
+                Desktop d=Desktop.getDesktop();
+                d.browse(new URI("https://robertsspaceindustries.com/orgs/" + orgsTable.getSelectionModel().getSelectedItem().getName()));
+            } catch (IOException ioe) {
+                ioe.printStackTrace();
+            } catch (URISyntaxException use) {
+                use.printStackTrace();
+            }
+        });
 
         String pl = "";
         for(Player player:players.getPlayerList()){
