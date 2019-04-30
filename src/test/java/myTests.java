@@ -100,7 +100,7 @@ public class myTests {
 
     @Test
     public void recognTest() throws IOException {
-        File orig_file = new File("C:\\12345\\_Miss\\ScreenShot0018.jpg");
+        /*File orig_file = new File("C:\\12345\\_Miss\\ScreenShot0018.jpg");
         Image image = FileHelper.extractQuest(orig_file);
 
         ITesseract instance = new Tesseract();
@@ -131,10 +131,10 @@ public class myTests {
 
             File file = new File("resources/temp.jpg");
             ImageIO.write(crop_image, "jpg", file);
-
+*/
         //распознавание текста
-        String result = "";
-
+        String result = "the mustang alpha is a sleek.";
+/*
             try {
                 result = instance.doOCR(file);
             } catch (TesseractException e1) {
@@ -143,27 +143,20 @@ public class myTests {
             file.delete();
 
         System.out.println("Result: \n" + result);
-/*
-        // Instantiates a client
-        Translate translate = TranslateOptions.getDefaultInstance().getService();
-
-        // The text to translate
-        String text = result;
-
-        // Translates some text into Russian
-        Translation translation =
-                translate.translate(
-                        text,
-                        TranslateOption.sourceLanguage("en"),
-                        TranslateOption.targetLanguage("ru"));
-
-
-        System.out.printf("Text: %s%n", text);
-        System.out.printf("Translation: %s%n", translation.getTranslatedText());
 */
+        String res = result.replace(" ", "%20");
+        String base = "https://translate.google.com/?hl=ru";
+        Document doc;
+        try {
+            doc = Jsoup.connect(base).get();
+            //take info about main org
+            Elements elements = doc.select("span[class=tlid-translation translation]");
+            //String logo_path = el.select("img").attr("src");
+            Elements strings = elements.select("span");
 
-
-
+        } catch (IOException e) {
+            System.out.println("No info");
+        }
     }
 
 }
