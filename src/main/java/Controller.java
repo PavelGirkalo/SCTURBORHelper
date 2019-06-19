@@ -7,9 +7,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -22,13 +26,17 @@ import net.sourceforge.tess4j.Tesseract;
 import net.sourceforge.tess4j.TesseractException;
 
 import javax.imageio.ImageIO;
+import java.awt.*;
 import java.awt.color.ColorSpace;
 import java.awt.image.*;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.ResourceBundle;
@@ -116,15 +124,15 @@ public class Controller implements Initializable {
 
     //объекты второй страницы
     @FXML
-    Button openButton1;
+    Button openQuestButton;
     @FXML
-    Button clearButton1;
+    Button clearQuestsButton;
     @FXML
-    Button recognButton1;
+    Button recognQuestButton;
     @FXML
-    ImageView imageView11;
+    ImageView imageViewQuest;
     @FXML
-    TextArea tempList1;
+    TextArea textQuest;
 
 
     //объекты третьей страницы
@@ -215,7 +223,7 @@ public class Controller implements Initializable {
             File orig_file = FileHelper.loadFile();
             if (orig_file.getParent() != "") {
                 Image image = FileHelper.extractQuest(orig_file);
-                imageView11.setImage(image);
+                imageViewQuest.setImage(image);
             }
         } catch (NullPointerException e) {
             System.out.println("File not found");
@@ -280,6 +288,8 @@ public class Controller implements Initializable {
         tempList.setText(tempList.getText() + "\n" + nicknameList);
 
     }
+
+
 
     public void viewInfo() {
 
@@ -376,7 +386,28 @@ public class Controller implements Initializable {
         org_logo.setImage(new Image(result.get(2),165,165,false,false));
         org_info.setText(result.get(3));
         org_info.setEditable(false);
-
+        //просмотр профиля игрока на сайте
+        player_info.setOnMouseClicked((MouseEvent event) -> {
+            try {
+                Desktop d=Desktop.getDesktop();
+                d.browse(new URI("https://robertsspaceindustries.com/citizens/" + finalTable.getSelectionModel().getSelectedItem().getUserName()));
+            } catch (IOException ioe) {
+                ioe.printStackTrace();
+            } catch (URISyntaxException use) {
+                use.printStackTrace();
+            }
+        });
+        //просмотр профиля организации на сайте
+        org_info.setOnMouseClicked((MouseEvent event) -> {
+            try {
+                Desktop d=Desktop.getDesktop();
+                d.browse(new URI("https://robertsspaceindustries.com/orgs/" + finalTable.getSelectionModel().getSelectedItem().getOrgs().get(0)));
+            } catch (IOException ioe) {
+                ioe.printStackTrace();
+            } catch (URISyntaxException use) {
+                use.printStackTrace();
+            }
+        });
 
         //добавление элементов на сцену
         root.getChildren().add(player_info);
@@ -431,6 +462,16 @@ public class Controller implements Initializable {
         org_logo.setImage(new Image(result.get(0),165,165,false,false));
         org_info.setText(result.get(1));
         org_info.setEditable(false);
+        org_info.setOnMouseClicked((MouseEvent event) -> {
+            try {
+                Desktop d=Desktop.getDesktop();
+                d.browse(new URI("https://robertsspaceindustries.com/orgs/" + orgsTable.getSelectionModel().getSelectedItem().getName()));
+            } catch (IOException ioe) {
+                ioe.printStackTrace();
+            } catch (URISyntaxException use) {
+                use.printStackTrace();
+            }
+        });
 
         String pl = "";
         for(Player player:players.getPlayerList()){
@@ -500,54 +541,11 @@ public class Controller implements Initializable {
     }
 
     public void clearImage(ActionEvent actionEvent) {
-        imageView11.setImage(null);
+        imageViewQuest.setImage(null);
     }
 
     public void recognizeQuest(ActionEvent actionEvent) {
-        //File orig_file = new File("C:\\12345\\_Miss\\ScreenShot0018.jpg");
-        //Image image = FileHelper.extractQuest(orig_file);
-
-        ITesseract instance = new Tesseract();
-        instance.setDatapath("resources/tessdata");
-
-        //считывание из файлов изображений
-        BufferedImage buff_image = SwingFXUtils.fromFXImage(imageView11.getImage(),null);
-
-        BufferedImage crop_image = buff_image;
-
-        //негатив
-        short[] negative = new short[256 * 1];
-        for (int i = 0; i < 256; i++) negative[i] = (short) (255 - i);
-        ShortLookupTable table = new ShortLookupTable(0, negative);
-        LookupOp op2 = new LookupOp(table, null);
-        crop_image = op2.filter(crop_image, crop_image);
-
-        //ч-б преобразование
-        ColorConvertOp grayOp = new ColorConvertOp(ColorSpace.getInstance(ColorSpace.CS_GRAY), null);
-        crop_image = grayOp.filter(crop_image, crop_image);
-
-        //осветление
-        float a = 1.3f;
-        RescaleOp op1 = new RescaleOp(a, 0, null);
-        crop_image = op1.filter(crop_image, crop_image);
-
-
-        File file = new File("resources/temp.jpg");
-        try {
-            ImageIO.write(crop_image, "jpg", file);
-        } catch(IOException e){}
-        //распознавание текста
-        String result = "";
-
-        try {
-            result = instance.doOCR(file);
-        } catch (TesseractException e1) {
-            //e1.printStackTrace();
-        }
-        file.delete();
-
-        tempList1.setText(result);
-
+        textQuest.setText(RecognHelper.recognText(imageViewQuest));
     }
 
     public void viewHistory() {

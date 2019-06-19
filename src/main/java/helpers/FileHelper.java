@@ -155,7 +155,7 @@ public class FileHelper {
             if (im_height == 1080) {
                 if (im_width == 1920) { // соотношение 16:9
                     image = orig_image.getSubimage(orig_image.getWidth() - 1045, 245, 1005, orig_image.getHeight() - 460); // вырезание квеста
-                    image = Scalr.resize(image, Scalr.Method.BALANCED, 700, 600);
+                    //image = Scalr.resize(image, Scalr.Method.BALANCED, 600, 650);
                 } else if (im_width == 2560) { // соотношение 21:9
                     image = orig_image.getSubimage(orig_image.getWidth() - 380 - 320, 215, 290, orig_image.getHeight() - 430);
                 } else if (im_width == 3840) { // соотношение 32:9
