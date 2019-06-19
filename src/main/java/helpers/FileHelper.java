@@ -73,8 +73,6 @@ public class FileHelper {
     }
 
 
-
-
     public static File loadFile() {
         Properties properties = new Properties();
         try{

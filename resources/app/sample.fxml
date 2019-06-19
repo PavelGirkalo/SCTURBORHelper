@@ -112,7 +112,7 @@
             </AnchorPane>
          </content>
       </Tab>
-    <Tab fx:id="Tab2" disable="true" text="Работа с ресурсами">
+    <Tab fx:id="Tab2" text="Работа с ресурсами">
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
@@ -131,7 +131,11 @@
                               <Label fx:id="quaLabel" layoutX="216.0" layoutY="9.0" prefHeight="17.0" prefWidth="91.0" text="Количество:" AnchorPane.leftAnchor="215.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="9.0" />
                            </children>
                         </AnchorPane>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                           <children>
+                              <Button fx:id="historyButton" layoutX="5.0" layoutY="2.0" mnemonicParsing="false" onAction="#viewHistory" text="История запросов" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0" />
+                              <TextArea fx:id="historyArea" layoutX="5.0" layoutY="35.0" prefHeight="500.0" prefWidth="500.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="35.0" />
+                           </children></AnchorPane>
                     </items>
                   </SplitPane>
                </children></AnchorPane>

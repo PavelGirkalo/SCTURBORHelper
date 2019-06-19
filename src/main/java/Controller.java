@@ -25,9 +25,12 @@ import javax.imageio.ImageIO;
 import java.awt.color.ColorSpace;
 import java.awt.image.*;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
@@ -138,6 +141,10 @@ public class Controller implements Initializable {
     TableColumn<Player, String> nameColumn;
     @FXML
     TableColumn<Player, String> flColumn;
+    @FXML
+    Button historyButton;
+    @FXML
+    TextArea historyArea;
 
 
 
@@ -282,19 +289,42 @@ public class Controller implements Initializable {
         ParserHelper.getInfo(players);
         //заполнение флага свой/чужой с проверкой игроков в черном и белом списках
         players = ModelHelper.checkPlayersFlag(players);
-        //вывод модели на экран
+
+        //вывод инфы об игроках на экран
         finalTable.setItems(TableHelper.fillTable(players));
         //flagColumn.setComparator(flagColumn.getComparator().reversed());
         flagColumn.setComparator(flagColumn.getComparator());
         finalTable.getSortOrder().add(flagColumn);
 
-
-
+        //вывод инфы о корпах на экран
         orgs = ModelHelper.fillOrgModel(players);
         orgsTable.setItems(TableHelper.fillOrgTable(orgs));
         orgQuantity.setComparator(orgQuantity.getComparator());
         orgsTable.getSortOrder().add(orgQuantity);
 
+        //сохранение запрошенного списка игроков в историю
+        savePlayersToHistory(tempList.getText());
+
+    }
+
+    private void savePlayersToHistory(String list) {
+        try{
+            FileInputStream fis = new FileInputStream("resources/history/log.txt");
+
+            byte[] buffer = new byte[fis.available()];
+            // считываем буфер
+            fis.read(buffer, 0, buffer.length);
+            fis.close();
+
+            FileOutputStream fos = new FileOutputStream("resources/history/log.txt");
+            // записываем из буфера в файл
+            String text = "\n" + new Date().toString() + "\n" + list;
+            fos.write(buffer);
+            fos.write(text.getBytes());
+            fos.close();
+        } catch(IOException e) {
+            System.out.println("Property file not found");
+        }
     }
 
 
@@ -517,6 +547,23 @@ public class Controller implements Initializable {
         file.delete();
 
         tempList1.setText(result);
+
+    }
+
+    public void viewHistory() {
+        try{
+            FileInputStream fis = new FileInputStream("resources/history/log.txt");
+            StringBuilder builder = new StringBuilder();
+            int ch;
+            while((ch = fis.read()) != -1){
+                builder.append((char)ch);
+            }
+            fis.close();
+
+            historyArea.setText(builder.toString());
+        } catch(Exception e){
+            System.out.println("Log not found");
+        }
 
     }
 }
